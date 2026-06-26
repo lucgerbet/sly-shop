@@ -11,10 +11,31 @@ const TYPES = [
   { id: "trousers", label: "Pantalon", sub: "Bas uniquement", price: "230 €" },
 ];
 
-const STYLES = [
+const CUTS = [
   { id: "classic", label: "Classique", sub: "Coupe droite, épaules naturelles, intemporel" },
   { id: "slim", label: "Slim", sub: "Silhouette ajustée, moderne, épuré" },
   { id: "relaxed", label: "Relaxed", sub: "Coupe ample, décontractée, contemporaine" },
+];
+
+const JACKET_STYLES = [
+  {
+    id: "havana",
+    label: "Havana",
+    sub: "Épaules naturelles, revers cranté & poches passepoilées.",
+    detail: "Silhouette souple et décontractée — la coupe la plus naturelle.",
+  },
+  {
+    id: "milano",
+    label: "Milano",
+    sub: "Épaules structurées, large revers cranté & poches à rabat.",
+    detail: "Allure affirmée et italienne — la coupe la plus puissante.",
+  },
+  {
+    id: "roma",
+    label: "Roma",
+    sub: "Fermeture 2,5 boutons, larges revers crantés & poches passepoilées.",
+    detail: "Coupe classique italienne — élégance intemporelle.",
+  },
 ];
 
 const COLORS = [
@@ -28,14 +49,15 @@ const COLORS = [
 
 type Config = {
   type: string;
-  style: string;
+  cut: string;
+  jacketStyle: string;
   color: string;
   name: string;
   email: string;
   message: string;
 };
 
-/* ─── Step indicator ─────────────────────────────────────────── */
+/* ─── Step bar ───────────────────────────────────────────────── */
 
 function StepBar({ current, total }: { current: number; total: number }) {
   return (
@@ -102,28 +124,28 @@ function Step2({ config, set }: { config: Config; set: (k: keyof Config, v: stri
       <h2 className="font-brand text-3xl md:text-4xl text-ink mb-2">Quelle coupe préférez-vous ?</h2>
       <p className="text-sm text-muted mb-10 font-light">Vous affinerez les détails avec Luc lors du rendez-vous.</p>
       <div className="flex flex-col gap-3">
-        {STYLES.map((s) => (
+        {CUTS.map((s) => (
           <button
             key={s.id}
-            onClick={() => set("style", s.id)}
+            onClick={() => set("cut", s.id)}
             className={`text-left px-8 py-6 border flex items-center gap-6 transition-colors ${
-              config.style === s.id
+              config.cut === s.id
                 ? "border-choco bg-choco text-white"
                 : "border-border bg-white hover:border-ink"
             }`}
           >
             <div
               className={`w-5 h-5 rounded-full border-2 shrink-0 flex items-center justify-center ${
-                config.style === s.id ? "border-white" : "border-border"
+                config.cut === s.id ? "border-white" : "border-border"
               }`}
             >
-              {config.style === s.id && <div className="w-2.5 h-2.5 rounded-full bg-white" />}
+              {config.cut === s.id && <div className="w-2.5 h-2.5 rounded-full bg-white" />}
             </div>
             <div>
-              <p className={`font-medium text-base mb-0.5 ${config.style === s.id ? "text-white" : "text-ink"}`}>
+              <p className={`font-medium text-base mb-0.5 ${config.cut === s.id ? "text-white" : "text-ink"}`}>
                 {s.label}
               </p>
-              <p className={`text-sm font-light ${config.style === s.id ? "text-white/70" : "text-muted"}`}>
+              <p className={`text-sm font-light ${config.cut === s.id ? "text-white/70" : "text-muted"}`}>
                 {s.sub}
               </p>
             </div>
@@ -137,6 +159,52 @@ function Step2({ config, set }: { config: Config; set: (k: keyof Config, v: stri
 function Step3({ config, set }: { config: Config; set: (k: keyof Config, v: string) => void }) {
   return (
     <div>
+      <h2 className="font-brand text-3xl md:text-4xl text-ink mb-2">Style de veste</h2>
+      <p className="text-sm text-muted mb-10 font-light">Chaque style correspond à une construction différente. Luc vous guidera dans les détails.</p>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {JACKET_STYLES.map((j) => (
+          <button
+            key={j.id}
+            onClick={() => set("jacketStyle", j.id)}
+            className={`text-left p-8 border transition-colors ${
+              config.jacketStyle === j.id
+                ? "border-choco bg-choco text-white"
+                : "border-border bg-white hover:border-ink"
+            }`}
+          >
+            {/* Jacket silhouette SVG */}
+            <div className={`w-full mb-6 flex items-center justify-center ${config.jacketStyle === j.id ? "opacity-80" : "opacity-20"}`}>
+              <svg viewBox="0 0 120 160" className="w-24 h-32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {j.id === "havana" && (
+                  <path d="M40 10 L20 40 L10 160 L55 160 L55 90 L60 85 L65 90 L65 160 L110 160 L100 40 L80 10 L70 25 L60 35 L50 25 Z M40 10 L30 50 M80 10 L90 50" stroke="currentColor" strokeWidth="3" strokeLinejoin="round"/>
+                )}
+                {j.id === "milano" && (
+                  <path d="M38 10 L15 42 L8 160 L55 160 L55 90 L60 85 L65 90 L65 160 L112 160 L105 42 L82 10 L70 28 L60 38 L50 28 Z M38 10 L28 52 M82 10 L92 52" stroke="currentColor" strokeWidth="3" strokeLinejoin="round"/>
+                )}
+                {j.id === "roma" && (
+                  <path d="M40 10 L18 40 L10 160 L55 160 L55 88 L58 82 L60 80 L62 82 L65 88 L65 160 L110 160 L102 40 L80 10 L70 26 L60 36 L50 26 Z M55 100 L65 100 M40 10 L30 50 M80 10 L90 50" stroke="currentColor" strokeWidth="3" strokeLinejoin="round"/>
+                )}
+              </svg>
+            </div>
+            <p className={`font-brand text-2xl mb-2 ${config.jacketStyle === j.id ? "text-white" : "text-ink"}`}>
+              {j.label}
+            </p>
+            <p className={`text-sm mb-3 font-light leading-relaxed ${config.jacketStyle === j.id ? "text-white/80" : "text-muted"}`}>
+              {j.sub}
+            </p>
+            <p className={`text-xs font-light leading-relaxed ${config.jacketStyle === j.id ? "text-white/60" : "text-muted/60"}`}>
+              {j.detail}
+            </p>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Step4({ config, set }: { config: Config; set: (k: keyof Config, v: string) => void }) {
+  return (
+    <div>
       <h2 className="font-brand text-3xl md:text-4xl text-ink mb-2">Quelle couleur principale ?</h2>
       <p className="text-sm text-muted mb-10 font-light">Nous affinerons le tissu et la nuance exacte avec Luc.</p>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
@@ -148,19 +216,14 @@ function Step3({ config, set }: { config: Config; set: (k: keyof Config, v: stri
               config.color === c.id ? "border-choco" : "border-border hover:border-ink"
             }`}
           >
-            <div
-              className="w-full aspect-square mb-4 rounded-sm"
-              style={{ background: c.hex }}
-            />
+            <div className="w-full aspect-square mb-4 rounded-sm" style={{ background: c.hex }} />
             <div className="flex items-center gap-2">
               <div
                 className={`w-3.5 h-3.5 rounded-full border-2 shrink-0 flex items-center justify-center ${
                   config.color === c.id ? "border-choco" : "border-border"
                 }`}
               >
-                {config.color === c.id && (
-                  <div className="w-2 h-2 rounded-full bg-choco" />
-                )}
+                {config.color === c.id && <div className="w-2 h-2 rounded-full bg-choco" />}
               </div>
               <p className="text-sm text-ink font-medium">{c.label}</p>
             </div>
@@ -171,7 +234,7 @@ function Step3({ config, set }: { config: Config; set: (k: keyof Config, v: stri
   );
 }
 
-function Step4({
+function Step5({
   config,
   set,
   onSubmit,
@@ -181,22 +244,25 @@ function Step4({
   onSubmit: () => void;
 }) {
   const selectedType = TYPES.find((t) => t.id === config.type);
-  const selectedStyle = STYLES.find((s) => s.id === config.style);
+  const selectedCut = CUTS.find((s) => s.id === config.cut);
+  const selectedJacket = JACKET_STYLES.find((j) => j.id === config.jacketStyle);
   const selectedColor = COLORS.find((c) => c.id === config.color);
+
+  const summaryRows = [
+    ["Pièce", selectedType?.label ?? "—"],
+    ["Coupe", selectedCut?.label ?? "—"],
+    ...(config.type !== "trousers" ? [["Style de veste", selectedJacket?.label ?? "—"]] : []),
+    ["Couleur", selectedColor?.label ?? "—"],
+    ["Prix", selectedType?.price ?? "—"],
+    ["Délai", "2 – 3 semaines"],
+  ];
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-      {/* Summary */}
       <div>
         <h2 className="font-brand text-3xl md:text-4xl text-ink mb-8">Votre résumé</h2>
         <div className="border border-border divide-y divide-border mb-8">
-          {[
-            ["Pièce", selectedType?.label ?? "—"],
-            ["Coupe", selectedStyle?.label ?? "—"],
-            ["Couleur", selectedColor?.label ?? "—"],
-            ["Prix", selectedType?.price ?? "—"],
-            ["Délai", "2 – 3 semaines"],
-          ].map(([label, value]) => (
+          {summaryRows.map(([label, value]) => (
             <div key={label} className="flex justify-between px-6 py-4">
               <span className="text-sm text-muted font-light">{label}</span>
               <span className="text-sm text-ink font-medium">{value}</span>
@@ -209,17 +275,11 @@ function Step4({
         </div>
       </div>
 
-      {/* Contact form */}
       <div>
         <h2 className="font-brand text-3xl md:text-4xl text-ink mb-8">Vos coordonnées</h2>
-        <form
-          onSubmit={(e) => { e.preventDefault(); onSubmit(); }}
-          className="flex flex-col gap-5"
-        >
+        <form onSubmit={(e) => { e.preventDefault(); onSubmit(); }} className="flex flex-col gap-5">
           <div>
-            <label className="text-[11px] uppercase tracking-[0.2em] text-muted mb-2 block">
-              Nom complet
-            </label>
+            <label className="text-[11px] uppercase tracking-[0.2em] text-muted mb-2 block">Nom complet</label>
             <input
               required
               value={config.name}
@@ -229,9 +289,7 @@ function Step4({
             />
           </div>
           <div>
-            <label className="text-[11px] uppercase tracking-[0.2em] text-muted mb-2 block">
-              Email
-            </label>
+            <label className="text-[11px] uppercase tracking-[0.2em] text-muted mb-2 block">Email</label>
             <input
               required
               type="email"
@@ -242,9 +300,7 @@ function Step4({
             />
           </div>
           <div>
-            <label className="text-[11px] uppercase tracking-[0.2em] text-muted mb-2 block">
-              Message (optionnel)
-            </label>
+            <label className="text-[11px] uppercase tracking-[0.2em] text-muted mb-2 block">Message (optionnel)</label>
             <textarea
               rows={3}
               value={config.message}
@@ -270,14 +326,16 @@ function Step4({
 
 /* ─── Main configurator ──────────────────────────────────────── */
 
-const STEP_LABELS = ["Pièce", "Coupe", "Couleur", "Rendez-vous"];
+const ALL_STEP_LABELS = ["Pièce", "Coupe", "Veste", "Couleur", "Rendez-vous"];
+const TROUSER_STEP_LABELS = ["Pièce", "Coupe", "Couleur", "Rendez-vous"];
 
 export default function Customize() {
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [config, setConfig] = useState<Config>({
     type: "",
-    style: "",
+    cut: "",
+    jacketStyle: "",
     color: "",
     name: "",
     email: "",
@@ -286,10 +344,25 @@ export default function Customize() {
 
   const set = (k: keyof Config, v: string) => setConfig((c) => ({ ...c, [k]: v }));
 
+  const isTrousers = config.type === "trousers";
+  const STEP_LABELS = isTrousers ? TROUSER_STEP_LABELS : ALL_STEP_LABELS;
+  const totalSteps = STEP_LABELS.length;
+
+  // Map logical step index to actual step component
+  // For trousers: 0=type, 1=cut, 2=color, 3=summary  (skip jacket style step)
+  // For others:   0=type, 1=cut, 2=jacket, 3=color, 4=summary
+  const getActualStep = () => {
+    if (isTrousers && step >= 2) return step + 1; // skip step index 2 (jacket)
+    return step;
+  };
+
+  const actualStep = getActualStep();
+
   const canNext = [
     !!config.type,
-    !!config.style,
-    !!config.color,
+    !!config.cut,
+    isTrousers ? !!config.color : !!config.jacketStyle,
+    isTrousers ? true : !!config.color,
     true,
   ][step];
 
@@ -303,8 +376,7 @@ export default function Customize() {
           <h1 className="font-brand text-3xl text-ink mb-4">Demande reçue.</h1>
           <p className="text-sm text-muted font-light leading-relaxed mb-8">
             Merci {config.name}. Luc vous contactera dans les 24h à l&apos;adresse{" "}
-            <strong className="text-ink">{config.email}</strong> pour fixer
-            votre rendez-vous.
+            <strong className="text-ink">{config.email}</strong> pour fixer votre rendez-vous.
           </p>
           <Link href="/" className="text-sm text-ink border-b border-ink pb-1 hover:text-choco hover:border-choco transition-colors">
             ← Retour à l&apos;accueil
@@ -340,15 +412,16 @@ export default function Customize() {
 
       {/* Content */}
       <div className="mx-auto max-w-5xl px-6 md:px-10 py-14 md:py-20">
-        <StepBar current={step} total={STEP_LABELS.length} />
+        <StepBar current={step} total={totalSteps} />
 
-        {step === 0 && <Step1 config={config} set={set} />}
-        {step === 1 && <Step2 config={config} set={set} />}
-        {step === 2 && <Step3 config={config} set={set} />}
-        {step === 3 && <Step4 config={config} set={set} onSubmit={() => setSubmitted(true)} />}
+        {actualStep === 0 && <Step1 config={config} set={set} />}
+        {actualStep === 1 && <Step2 config={config} set={set} />}
+        {actualStep === 2 && <Step3 config={config} set={set} />}
+        {actualStep === 3 && <Step4 config={config} set={set} />}
+        {actualStep === 4 && <Step5 config={config} set={set} onSubmit={() => setSubmitted(true)} />}
 
         {/* Navigation */}
-        {step < 3 && (
+        {step < totalSteps - 1 && (
           <div className="mt-12 flex items-center justify-between">
             <button
               onClick={() => setStep((s) => Math.max(0, s - 1))}
@@ -358,7 +431,7 @@ export default function Customize() {
               ← Retour
             </button>
             <button
-              onClick={() => setStep((s) => Math.min(3, s + 1))}
+              onClick={() => setStep((s) => Math.min(totalSteps - 1, s + 1))}
               disabled={!canNext}
               className="px-8 py-3.5 bg-choco text-white text-sm tracking-wide hover:bg-ink transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             >
