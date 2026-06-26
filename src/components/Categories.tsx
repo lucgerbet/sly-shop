@@ -11,8 +11,8 @@ const categories = [
     description: "Blazer et pantalon assortis, taillés sur mesure selon vos proportions et votre style.",
     featured: true,
     photo: "/photos/cat-suit.jpg",
-    photoAlt: "Homme en costume gris à Shanghai",
-    objectPosition: "center top",
+    photoAlt: "Costume rayures DiCaprio",
+    objectPosition: "center 15%",
   },
   {
     id: "blazer",
@@ -22,8 +22,8 @@ const categories = [
     description: "Un blazer seul pour compléter un pantalon existant ou porter en casual.",
     featured: false,
     photo: "/photos/cat-blazer.jpg",
-    photoAlt: "Homme en blazer",
-    objectPosition: "center top",
+    photoAlt: "Blazer blanc Scarface",
+    objectPosition: "center 20%",
   },
   {
     id: "trousers",
@@ -33,8 +33,8 @@ const categories = [
     description: "Pantalon de costume ou chino, coupé selon votre morphologie et vos préférences.",
     featured: false,
     photo: "/photos/cat-trousers.jpg",
-    photoAlt: "Homme en pantalon de costume",
-    objectPosition: "center center",
+    photoAlt: "Pantalon costume rayures",
+    objectPosition: "center 30%",
   },
 ];
 

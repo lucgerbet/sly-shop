@@ -33,41 +33,15 @@ export default function LucSection() {
         {/* Top — intro */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-20 md:mb-28">
 
-          {/* Luc's photo — vintage film effect */}
+          {/* Luc's photo */}
           <FadeUp>
             <div className="relative aspect-[3/4] overflow-hidden">
-              {/* SVG grain filter */}
-              <svg className="absolute w-0 h-0">
-                <defs>
-                  <filter id="vintage-grain" x="0%" y="0%" width="100%" height="100%">
-                    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" result="noise"/>
-                    <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
-                    <feBlend in="SourceGraphic" in2="grayNoise" mode="multiply" result="blended"/>
-                    <feComponentTransfer in="blended">
-                      <feFuncR type="linear" slope="0.88" intercept="0.05"/>
-                      <feFuncG type="linear" slope="0.82" intercept="0.04"/>
-                      <feFuncB type="linear" slope="0.72" intercept="0.02"/>
-                    </feComponentTransfer>
-                  </filter>
-                </defs>
-              </svg>
               <Image
                 src="/photos/luc.jpg"
                 alt="Luc — SLY Atelier"
                 fill
                 className="object-cover object-top"
-                style={{ filter: "sepia(0.35) contrast(1.12) brightness(0.88) saturate(0.75)" }}
               />
-              {/* Grain overlay */}
-              <div
-                className="absolute inset-0 pointer-events-none mix-blend-overlay opacity-30"
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`,
-                  backgroundSize: "128px 128px",
-                }}
-              />
-              {/* Vignette */}
-              <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.35) 100%)" }} />
             </div>
           </FadeUp>
 
