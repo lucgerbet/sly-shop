@@ -22,8 +22,8 @@ const categories = [
     description: "Un blazer seul pour compléter un pantalon existant ou porter en casual.",
     featured: false,
     photo: "/photos/cat-blazer.jpg",
-    photoAlt: "Blazer blanc Scarface",
-    objectPosition: "center 20%",
+    photoAlt: "Blazer navy rayures American Psycho",
+    objectPosition: "center 10%",
   },
   {
     id: "trousers",
