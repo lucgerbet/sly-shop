@@ -4,6 +4,7 @@
     "howItWorks": "Come funziona",
     "ourPromise": "La nostra promessa",
     "ourStory": "La nostra storia",
+    "offers": "Offerte",
     "configureCta": "Configura il mio abito",
     "menu": "Menu"
   },
@@ -432,123 +433,410 @@
     },
     "options": {
       "occasions": {
-        "ceremony": { "label": "Cerimonia", "sub": "Matrimonio, gala, grande evento.", "detail": "Un look formale e senza tempo, pensato per segnare le grandi occasioni." },
-        "business": { "label": "Business", "sub": "Ufficio, appuntamenti professionali.", "detail": "Un abito che ispira fiducia e serietà nella vita professionale quotidiana." },
-        "casual": { "label": "Casual", "sub": "Uscite, tenuta casual chic.", "detail": "Un taglio più libero, per un uso meno formale senza perdere in eleganza." },
-        "daily": { "label": "Quotidiano", "sub": "Indossato molto regolarmente.", "detail": "Un capo versatile e comodo, pensato per durare, giorno dopo giorno." }
+        "ceremony": {
+          "label": "Cerimonia",
+          "sub": "Matrimonio, gala, grande evento.",
+          "detail": "Un look formale e senza tempo, pensato per segnare le grandi occasioni."
+        },
+        "business": {
+          "label": "Business",
+          "sub": "Ufficio, appuntamenti professionali.",
+          "detail": "Un abito che ispira fiducia e serietà nella vita professionale quotidiana."
+        },
+        "casual": {
+          "label": "Casual",
+          "sub": "Uscite, tenuta casual chic.",
+          "detail": "Un taglio più libero, per un uso meno formale senza perdere in eleganza."
+        },
+        "daily": {
+          "label": "Quotidiano",
+          "sub": "Indossato molto regolarmente.",
+          "detail": "Un capo versatile e comodo, pensato per durare, giorno dopo giorno."
+        }
       },
       "types": {
-        "suit": { "label": "Abito Due Pezzi", "sub": "Giacca + Pantalone" },
-        "blazer": { "label": "Giacca", "sub": "Solo capo superiore" },
-        "trousers": { "label": "Pantalone", "sub": "Solo capo inferiore" },
-        "shirt": { "label": "Camicia su misura", "sub": "Pagamento unico" }
+        "suit": {
+          "label": "Abito Due Pezzi",
+          "sub": "Giacca + Pantalone"
+        },
+        "blazer": {
+          "label": "Giacca",
+          "sub": "Solo capo superiore"
+        },
+        "trousers": {
+          "label": "Pantalone",
+          "sub": "Solo capo inferiore"
+        },
+        "shirt": {
+          "label": "Camicia su misura",
+          "sub": "Pagamento unico"
+        }
       },
       "jacketStyles": {
-        "roma": { "label": "Notch", "sub": "Costruzione classica, spalle leggere & rever a lancia.", "detail": "Struttura tradizionale senza eccessi, rever a lancia. L'abito da cerimonia per eccellenza." },
-        "milano": { "label": "Milano", "sub": "Costruzione classica, spalle leggere & rever a punta.", "detail": "Stessa struttura tradizionale del Notch, ma con un rever a punta più marcato." },
-        "dracula": { "label": "Dracula", "sub": "Spalle strutturate & rever a punta pronunciata.", "detail": "Un look potente e carismatico. Spalle strutturate e rever a punta che allungano il busto. Ideale per cerimonie di prestigio e serate eleganti." }
+        "roma": {
+          "label": "Notch",
+          "sub": "Costruzione classica, spalle leggere & rever a lancia.",
+          "detail": "Struttura tradizionale senza eccessi, rever a lancia. L'abito da cerimonia per eccellenza."
+        },
+        "milano": {
+          "label": "Milano",
+          "sub": "Costruzione classica, spalle leggere & rever a punta.",
+          "detail": "Stessa struttura tradizionale del Notch, ma con un rever a punta più marcato."
+        },
+        "dracula": {
+          "label": "Dracula",
+          "sub": "Spalle strutturate & rever a punta pronunciata.",
+          "detail": "Un look potente e carismatico. Spalle strutturate e rever a punta che allungano il busto. Ideale per cerimonie di prestigio e serate eleganti."
+        }
       },
       "jacketCuts": {
-        "classic": { "label": "Classico", "sub": "Taglio dritto, spalle naturali, senza tempo", "detail": "Un taglio senza tempo, comodo, che non passa mai di moda. Ideale per il quotidiano." },
-        "slim": { "label": "Slim", "sub": "Silhouette aderente, moderna, essenziale", "detail": "Più aderente al corpo per una silhouette più affinata e attuale." },
-        "relaxed": { "label": "Relaxed", "sub": "Taglio ampio, casual, contemporaneo", "detail": "Più libertà di movimento, una caduta più morbida e rilassata." }
+        "classic": {
+          "label": "Classico",
+          "sub": "Taglio dritto, spalle naturali, senza tempo",
+          "detail": "Un taglio senza tempo, comodo, che non passa mai di moda. Ideale per il quotidiano."
+        },
+        "slim": {
+          "label": "Slim",
+          "sub": "Silhouette aderente, moderna, essenziale",
+          "detail": "Più aderente al corpo per una silhouette più affinata e attuale."
+        },
+        "relaxed": {
+          "label": "Relaxed",
+          "sub": "Taglio ampio, casual, contemporaneo",
+          "detail": "Più libertà di movimento, una caduta più morbida e rilassata."
+        }
       },
       "closures": {
-        "one": { "label": "1 Bottone", "sub": "Minimalista ed elegante.", "detail": "Allunga la silhouette, valorizza il rever. Ideale per occasioni formali o serate eleganti." },
-        "two": { "label": "2 Bottoni", "sub": "La chiusura classica.", "detail": "Versatile e moderna, adatta a ogni occasione. La scelta più diffusa nella sartoria contemporanea." },
-        "db4x2": { "label": "Doppiopetto", "sub": "Doppiopetto, look deciso.", "detail": "Due file di bottoni incrociate. Ispira fiducia e autorevolezza. Una scelta audace per distinguersi." }
+        "one": {
+          "label": "1 Bottone",
+          "sub": "Minimalista ed elegante.",
+          "detail": "Allunga la silhouette, valorizza il rever. Ideale per occasioni formali o serate eleganti."
+        },
+        "two": {
+          "label": "2 Bottoni",
+          "sub": "La chiusura classica.",
+          "detail": "Versatile e moderna, adatta a ogni occasione. La scelta più diffusa nella sartoria contemporanea."
+        },
+        "db4x2": {
+          "label": "Doppiopetto",
+          "sub": "Doppiopetto, look deciso.",
+          "detail": "Due file di bottoni incrociate. Ispira fiducia e autorevolezza. Una scelta audace per distinguersi."
+        }
       },
       "linings": {
-        "full": { "label": "Fodera completa", "sub": "Corpo e maniche interamente foderati.", "detail": "Caduta perfetta, scivolamento impeccabile quando si indossa. Finitura premium. Ideale per abiti formali e stagioni fredde." },
-        "half": { "label": "Mezza fodera", "sub": "Foderata solo nella metà superiore.", "detail": "Più traspirante della fodera completa, mantenendo la struttura della giacca. Perfetta per primavera ed estate." },
-        "none": { "label": "Senza fodera", "sub": "Interamente non foderata.", "detail": "Ultra leggera e traspirante. Look casual e artigianale. Consigliata per tessuti estivi come lino o cotone." }
+        "full": {
+          "label": "Fodera completa",
+          "sub": "Corpo e maniche interamente foderati.",
+          "detail": "Caduta perfetta, scivolamento impeccabile quando si indossa. Finitura premium. Ideale per abiti formali e stagioni fredde."
+        },
+        "half": {
+          "label": "Mezza fodera",
+          "sub": "Foderata solo nella metà superiore.",
+          "detail": "Più traspirante della fodera completa, mantenendo la struttura della giacca. Perfetta per primavera ed estate."
+        },
+        "none": {
+          "label": "Senza fodera",
+          "sub": "Interamente non foderata.",
+          "detail": "Ultra leggera e traspirante. Look casual e artigianale. Consigliata per tessuti estivi come lino o cotone."
+        }
       },
       "colorFamilies": {
-        "bleu": { "label": "Blu", "shades": { "navy": "Navy", "dark-blue": "Blu Notte", "cobalt": "Blu Cobalto" } },
-        "gris": { "label": "Grigio", "shades": { "anthracite": "Antracite", "gris-moyen": "Grigio Medio", "gris-perle": "Grigio Perla" } },
-        "noir": { "label": "Nero", "shades": { "noir-profond": "Nero Profondo", "noir-mat": "Nero Opaco", "noir-bleute": "Nero Bluastro" } },
-        "vert": { "label": "Verde Scuro", "shades": { "bouteille": "Verde Bottiglia", "sapin": "Verde Pino", "olive": "Verde Oliva Scuro" } },
-        "marron": { "label": "Marrone", "shades": { "chocolat": "Cioccolato", "cognac": "Cognac", "chataigne": "Castagna" } },
-        "beige": { "label": "Beige", "shades": { "sable": "Sabbia", "taupe": "Talpa", "lin": "Lino" } }
+        "bleu": {
+          "label": "Blu",
+          "shades": {
+            "navy": "Navy",
+            "dark-blue": "Blu Notte",
+            "cobalt": "Blu Cobalto"
+          }
+        },
+        "gris": {
+          "label": "Grigio",
+          "shades": {
+            "anthracite": "Antracite",
+            "gris-moyen": "Grigio Medio",
+            "gris-perle": "Grigio Perla"
+          }
+        },
+        "noir": {
+          "label": "Nero",
+          "shades": {
+            "noir-profond": "Nero Profondo",
+            "noir-mat": "Nero Opaco",
+            "noir-bleute": "Nero Bluastro"
+          }
+        },
+        "vert": {
+          "label": "Verde Scuro",
+          "shades": {
+            "bouteille": "Verde Bottiglia",
+            "sapin": "Verde Pino",
+            "olive": "Verde Oliva Scuro"
+          }
+        },
+        "marron": {
+          "label": "Marrone",
+          "shades": {
+            "chocolat": "Cioccolato",
+            "cognac": "Cognac",
+            "chataigne": "Castagna"
+          }
+        },
+        "beige": {
+          "label": "Beige",
+          "shades": {
+            "sable": "Sabbia",
+            "taupe": "Talpa",
+            "lin": "Lino"
+          }
+        }
       },
       "patterns": {
-        "checks": { "label": "Quadri", "sub": "Glen plaid, Principe di Galles, Windowpane…", "detail": "Discreti o marcati, i quadri danno carattere senza esagerare." },
-        "stripes": { "label": "Righe", "sub": "Chalk stripe, Gessato, Righe tennis…", "detail": "Le righe allungano la silhouette. Un classico della sartoria inglese e italiana." },
-        "exotic": { "label": "Motivi esotici", "sub": "Spina di pesce, Pied de poule, Birdseye, Madras…", "detail": "Per i conoscitori che vogliono distinguersi con sottigliezza." }
+        "checks": {
+          "label": "Quadri",
+          "sub": "Glen plaid, Principe di Galles, Windowpane…",
+          "detail": "Discreti o marcati, i quadri danno carattere senza esagerare."
+        },
+        "stripes": {
+          "label": "Righe",
+          "sub": "Chalk stripe, Gessato, Righe tennis…",
+          "detail": "Le righe allungano la silhouette. Un classico della sartoria inglese e italiana."
+        },
+        "exotic": {
+          "label": "Motivi esotici",
+          "sub": "Spina di pesce, Pied de poule, Birdseye, Madras…",
+          "detail": "Per i conoscitori che vogliono distinguersi con sottigliezza."
+        }
       },
       "trouserCuts": {
-        "classic": { "label": "Classico", "sub": "Gamba dritta, caduta netta.", "detail": "Un pantalone senza tempo, né troppo aderente né troppo ampio. Si abbina a tutte le giacche." },
-        "slim": { "label": "Slim", "sub": "Aderente su tutta la gamba.", "detail": "Silhouette moderna ed essenziale, stretta verso la caviglia. Ideale con una giacca aderente." },
-        "loose": { "label": "Loose", "sub": "Gamba ampia, caduta fluida.", "detail": "Taglio casual e contemporaneo, più libertà di movimento. Perfetto con una giacca relaxed." }
+        "classic": {
+          "label": "Classico",
+          "sub": "Gamba dritta, caduta netta.",
+          "detail": "Un pantalone senza tempo, né troppo aderente né troppo ampio. Si abbina a tutte le giacche."
+        },
+        "slim": {
+          "label": "Slim",
+          "sub": "Aderente su tutta la gamba.",
+          "detail": "Silhouette moderna ed essenziale, stretta verso la caviglia. Ideale con una giacca aderente."
+        },
+        "loose": {
+          "label": "Loose",
+          "sub": "Gamba ampia, caduta fluida.",
+          "detail": "Taglio casual e contemporaneo, più libertà di movimento. Perfetto con una giacca relaxed."
+        }
       },
       "waistbands": {
-        "standard": { "label": "Standard", "sub": "Cintura classica, bottone a vista.", "detail": "Un montaggio semplice e versatile, con passanti, pensato per indossare una cintura." },
-        "double": { "label": "Doppia regolazione", "sub": "Fibbie regolabili su entrambi i lati.", "detail": "Stile di ispirazione militare: due fibbie regolabili sui fianchi e una facciata continua, senza cintura." }
+        "standard": {
+          "label": "Standard",
+          "sub": "Cintura classica, bottone a vista.",
+          "detail": "Un montaggio semplice e versatile, con passanti, pensato per indossare una cintura."
+        },
+        "double": {
+          "label": "Doppia regolazione",
+          "sub": "Fibbie regolabili su entrambi i lati.",
+          "detail": "Stile di ispirazione militare: due fibbie regolabili sui fianchi e una facciata continua, senza cintura."
+        }
       },
       "pleats": {
-        "none": { "label": "Senza pinces", "sub": "Davanti piatto (flat front).", "detail": "Il pantalone cade dritto lungo la gamba. Look pulito, moderno e versatile." },
-        "single": { "label": "Pince singola", "sub": "Una pince per gamba.", "detail": "Una pince che si apre verso la cucitura laterale. Più agio in vita e comfort da seduti." },
-        "double": { "label": "Doppia pince", "sub": "Due pinces per gamba.", "detail": "Due pinces che si aprono verso la cucitura laterale. Stile classico, massima ampiezza e comfort." }
+        "none": {
+          "label": "Senza pinces",
+          "sub": "Davanti piatto (flat front).",
+          "detail": "Il pantalone cade dritto lungo la gamba. Look pulito, moderno e versatile."
+        },
+        "single": {
+          "label": "Pince singola",
+          "sub": "Una pince per gamba.",
+          "detail": "Una pince che si apre verso la cucitura laterale. Più agio in vita e comfort da seduti."
+        },
+        "double": {
+          "label": "Doppia pince",
+          "sub": "Due pinces per gamba.",
+          "detail": "Due pinces che si aprono verso la cucitura laterale. Stile classico, massima ampiezza e comfort."
+        }
       },
       "hems": {
-        "plain": { "label": "Orlo semplice", "sub": "Finitura pulita, senza risvolto.", "detail": "Il tessuto è ripiegato all'interno della gamba per una finitura pulita. La finitura più classica e versatile." },
-        "turnup4": { "label": "Risvolto 4 cm", "sub": "Risvolto di 4 cm.", "detail": "Un risvolto che scopre di più la caviglia, allunga la silhouette e aggiunge peso per una caduta migliore." }
+        "plain": {
+          "label": "Orlo semplice",
+          "sub": "Finitura pulita, senza risvolto.",
+          "detail": "Il tessuto è ripiegato all'interno della gamba per una finitura pulita. La finitura più classica e versatile."
+        },
+        "turnup4": {
+          "label": "Risvolto 4 cm",
+          "sub": "Risvolto di 4 cm.",
+          "detail": "Un risvolto che scopre di più la caviglia, allunga la silhouette e aggiunge peso per una caduta migliore."
+        }
       },
       "buttonMaterials": {
-        "marron": { "label": "Corno marrone", "sub": "Corno naturale ambrato.", "detail": "Il grande classico del su misura: riflessi ambrati e venature calde, ogni bottone leggermente unico." },
-        "brun-craquele": { "label": "Corno marrone scuro", "sub": "Effetto craquelé opaco.", "detail": "Un marrone profondo dalla texture naturalmente craquelé, per una finitura al tempo stesso discreta e decisa." },
-        "noir": { "label": "Corno nero", "sub": "Finitura opaca profonda.", "detail": "Un nero opaco e uniforme, risolutamente sobrio. Si abbina a tutti i colori di tessuto." },
-        "marbre": { "label": "Corno marmorizzato", "sub": "Effetto marmorizzato nero & grigio.", "detail": "Venature grigie e bianche su fondo scuro, per un bottone dal carattere più grafico." },
-        "bleu": { "label": "Corno tinto blu", "sub": "Tinta blu intenso.", "detail": "Un corno tinto in un blu notte intenso, per un tocco di colore discreto e raffinato." },
-        "ivoire": { "label": "Corno avorio", "sub": "Chiaro, bordo sfumato.", "detail": "Un tono chiaro e luminoso con bordi leggermente sfumati, ideale per tessuti chiari e tenute estive." }
+        "marron": {
+          "label": "Corno marrone",
+          "sub": "Corno naturale ambrato.",
+          "detail": "Il grande classico del su misura: riflessi ambrati e venature calde, ogni bottone leggermente unico."
+        },
+        "brun-craquele": {
+          "label": "Corno marrone scuro",
+          "sub": "Effetto craquelé opaco.",
+          "detail": "Un marrone profondo dalla texture naturalmente craquelé, per una finitura al tempo stesso discreta e decisa."
+        },
+        "noir": {
+          "label": "Corno nero",
+          "sub": "Finitura opaca profonda.",
+          "detail": "Un nero opaco e uniforme, risolutamente sobrio. Si abbina a tutti i colori di tessuto."
+        },
+        "marbre": {
+          "label": "Corno marmorizzato",
+          "sub": "Effetto marmorizzato nero & grigio.",
+          "detail": "Venature grigie e bianche su fondo scuro, per un bottone dal carattere più grafico."
+        },
+        "bleu": {
+          "label": "Corno tinto blu",
+          "sub": "Tinta blu intenso.",
+          "detail": "Un corno tinto in un blu notte intenso, per un tocco di colore discreto e raffinato."
+        },
+        "ivoire": {
+          "label": "Corno avorio",
+          "sub": "Chiaro, bordo sfumato.",
+          "detail": "Un tono chiaro e luminoso con bordi leggermente sfumati, ideale per tessuti chiari e tenute estive."
+        }
       },
       "lapels": {
-        "notch": { "label": "Rever a lancia", "sub": "Notch, il rever classico.", "detail": "La forma più versatile, con un'incisione netta tra colletto e rever. Si adatta a ogni occasione." },
-        "peak": { "label": "Rever a punta", "sub": "Peak, look deciso.", "detail": "Un rever che punta verso l'alto, più formale e deciso. Tradizionalmente abbinato a giacche doppiopetto e tenute da cerimonia." }
+        "notch": {
+          "label": "Rever a lancia",
+          "sub": "Notch, il rever classico.",
+          "detail": "La forma più versatile, con un'incisione netta tra colletto e rever. Si adatta a ogni occasione."
+        },
+        "peak": {
+          "label": "Rever a punta",
+          "sub": "Peak, look deciso.",
+          "detail": "Un rever che punta verso l'alto, più formale e deciso. Tradizionalmente abbinato a giacche doppiopetto e tenute da cerimonia."
+        }
       },
       "lapelWidths": {
-        "8,5": { "label": "8,5 cm", "sub": "Sottile e discreto: un rever low-profile, dall'essenzialità molto contemporanea, per una silhouette più affinata." },
-        "9,5": { "label": "9,5 cm", "sub": "Il nostro consiglio: abbastanza presenza da dare carattere alla giacca, senza mai eccedere." },
-        "11": { "label": "11 cm", "sub": "Ampio e deciso: il rever del power suit, per un look imponente che cattura subito lo sguardo." }
+        "8,5": {
+          "label": "8,5 cm",
+          "sub": "Sottile e discreto: un rever low-profile, dall'essenzialità molto contemporanea, per una silhouette più affinata."
+        },
+        "9,5": {
+          "label": "9,5 cm",
+          "sub": "Il nostro consiglio: abbastanza presenza da dare carattere alla giacca, senza mai eccedere."
+        },
+        "11": {
+          "label": "11 cm",
+          "sub": "Ampio e deciso: il rever del power suit, per un look imponente che cattura subito lo sguardo."
+        }
       },
       "trouserLinings": {
-        "full": { "label": "Fodera completa", "sub": "Gamba interamente foderata.", "detail": "Massimo comfort e scivolamento perfetto quando si indossa. Ideale per l'inverno e i tessuti strutturati." },
-        "half": { "label": "Mezza fodera", "sub": "Foderata fino al ginocchio.", "detail": "Un buon compromesso tra comfort e traspirabilità: limita gli sfregamenti senza appesantire il pantalone." },
-        "none": { "label": "Senza fodera", "sub": "Interamente non foderato.", "detail": "Leggero e traspirante, per tessuti estivi come lino o cotone leggero." }
+        "full": {
+          "label": "Fodera completa",
+          "sub": "Gamba interamente foderata.",
+          "detail": "Massimo comfort e scivolamento perfetto quando si indossa. Ideale per l'inverno e i tessuti strutturati."
+        },
+        "half": {
+          "label": "Mezza fodera",
+          "sub": "Foderata fino al ginocchio.",
+          "detail": "Un buon compromesso tra comfort e traspirabilità: limita gli sfregamenti senza appesantire il pantalone."
+        },
+        "none": {
+          "label": "Senza fodera",
+          "sub": "Interamente non foderato.",
+          "detail": "Leggero e traspirante, per tessuti estivi come lino o cotone leggero."
+        }
       },
       "monogramPlacements": {
-        "inside": { "label": "Interno giacca", "sub": "Ricamato sul lato sinistro della fodera interna." },
-        "collar": { "label": "Sotto il colletto", "sub": "Ricamato sotto il colletto, discreto e raffinato." }
+        "inside": {
+          "label": "Interno giacca",
+          "sub": "Ricamato sul lato sinistro della fodera interna."
+        }
       },
       "monogramColors": {
-        "white": "Bianco", "silver": "Argento", "grey": "Grigio", "light-blue": "Blu Cielo",
-        "navy": "Blu Navy", "burgundy": "Bordeaux", "gold": "Oro", "black": "Nero"
+        "white": "Bianco",
+        "silver": "Argento",
+        "grey": "Grigio",
+        "light-blue": "Blu Cielo",
+        "navy": "Blu Navy",
+        "burgundy": "Bordeaux",
+        "gold": "Oro",
+        "black": "Nero"
       },
       "shirtFabrics": {
-        "blanc": { "label": "Bianco", "sub": "Il grande classico, sempre giusto." },
-        "bleu-ciel": { "label": "Blu cielo", "sub": "Fresco e versatile, il più indossato dopo il bianco." },
-        "bleu-fonce": { "label": "Blu scuro", "sub": "Più deciso, si porta bene sia da solo che con un abito." },
-        "rose-pale": { "label": "Rosa pallido", "sub": "Un tocco di colore discreto, molto usato in ambito business." },
-        "raye-bleu": { "label": "Righe blu", "sub": "Righe sottili su fondo chiaro, un classico inglese." },
-        "raye-fine": { "label": "Righe tono su tono", "sub": "Una texture discreta, quasi tinta unita da lontano." }
+        "blanc": {
+          "label": "Bianco",
+          "sub": "Il grande classico, sempre giusto."
+        },
+        "bleu-ciel": {
+          "label": "Blu cielo",
+          "sub": "Fresco e versatile, il più indossato dopo il bianco."
+        },
+        "bleu-fonce": {
+          "label": "Blu scuro",
+          "sub": "Più deciso, si porta bene sia da solo che con un abito."
+        },
+        "rose-pale": {
+          "label": "Rosa pallido",
+          "sub": "Un tocco di colore discreto, molto usato in ambito business."
+        },
+        "raye-bleu": {
+          "label": "Righe blu",
+          "sub": "Righe sottili su fondo chiaro, un classico inglese."
+        },
+        "raye-fine": {
+          "label": "Righe tono su tono",
+          "sub": "Una texture discreta, quasi tinta unita da lontano."
+        }
       },
       "shirtFits": {
-        "classic": { "label": "Classica", "sub": "Taglio dritto, comodo.", "detail": "Un taglio senza tempo con agio su tutto il busto. La scelta più versatile per il quotidiano." },
-        "slim": { "label": "Slim", "sub": "Silhouette aderente, moderna.", "detail": "Più aderente al corpo in vita e alle braccia, per un look pulito — perfetta indossata sotto una giacca." },
-        "relaxed": { "label": "Rilassata", "sub": "Taglio ampio, caduta fluida.", "detail": "Più libertà di movimento e una caduta più morbida — comoda anche fuori dall'ufficio." }
+        "classic": {
+          "label": "Classica",
+          "sub": "Taglio dritto, comodo.",
+          "detail": "Un taglio senza tempo con agio su tutto il busto. La scelta più versatile per il quotidiano."
+        },
+        "slim": {
+          "label": "Slim",
+          "sub": "Silhouette aderente, moderna.",
+          "detail": "Più aderente al corpo in vita e alle braccia, per un look pulito — perfetta indossata sotto una giacca."
+        },
+        "relaxed": {
+          "label": "Rilassata",
+          "sub": "Taglio ampio, caduta fluida.",
+          "detail": "Più libertà di movimento e una caduta più morbida — comoda anche fuori dall'ufficio."
+        }
       },
       "shirtCollars": {
-        "italien": { "label": "Colletto italiano", "sub": "Punte aperte, moderno.", "detail": "Un colletto aperto ed elegante, con o senza cravatta — il più versatile oggi." },
-        "boutonne": { "label": "Colletto button-down", "sub": "Button-down, casual-chic.", "detail": "Le punte del colletto si abbottonano sulla camicia — un classico americano, perfetto senza cravatta." },
-        "francais": { "label": "Colletto francese", "sub": "Punte dritte, classico.", "detail": "Il colletto più formale, tagliato per cravatta o papillon." }
+        "italien": {
+          "label": "Colletto italiano",
+          "sub": "Punte aperte, moderno.",
+          "detail": "Un colletto aperto ed elegante, con o senza cravatta — il più versatile oggi."
+        },
+        "boutonne": {
+          "label": "Colletto button-down",
+          "sub": "Button-down, casual-chic.",
+          "detail": "Le punte del colletto si abbottonano sulla camicia — un classico americano, perfetto senza cravatta."
+        },
+        "francais": {
+          "label": "Colletto francese",
+          "sub": "Punte dritte, classico.",
+          "detail": "Il colletto più formale, tagliato per cravatta o papillon."
+        }
       },
       "shirtCuffs": {
-        "simple": { "label": "Polsino semplice", "sub": "Un bottone, discreto.", "detail": "Il polsino di tutti i giorni, facile da portare sia con che senza giacca." },
-        "mousquetaire": { "label": "Polsino doppio", "sub": "Per gemelli.", "detail": "Si chiude con i gemelli — il tocco più formale, per le grandi occasioni." }
+        "simple": {
+          "label": "Polsino semplice",
+          "sub": "Un bottone, discreto.",
+          "detail": "Il polsino di tutti i giorni, facile da portare sia con che senza giacca."
+        },
+        "mousquetaire": {
+          "label": "Polsino doppio",
+          "sub": "Per gemelli.",
+          "detail": "Si chiude con i gemelli — il tocco più formale, per le grandi occasioni."
+        }
       },
       "shirtMonogramPlacements": {
-        "cuff": { "label": "Polsino", "sub": "Ricamato sul polsino, discreto e classico." },
-        "tail": { "label": "Fondo camicia", "sub": "Ricamato in fondo, invisibile una volta indossata." }
+        "cuff": {
+          "label": "Polsino",
+          "sub": "Ricamato sul polsino, discreto e classico."
+        },
+        "tail": {
+          "label": "Fondo camicia",
+          "sub": "Ricamato in fondo, invisibile una volta indossata."
+        }
       }
     },
     "summaryRows": {
@@ -589,6 +877,13 @@
       "deposit": "Acconto da pagare",
       "delay": "Tempistiche",
       "delayValue": "2 – 3 settimane"
+    },
+    "resume": {
+      "title": "Riprendere la tua configurazione?",
+      "body": "Avevi iniziato a configurare: {piece}. Vuoi riprendere da dove avevi interrotto, o ricominciare da zero?",
+      "resumeCta": "Riprendi",
+      "freshCta": "Ricomincia da zero",
+      "pieceFallback": "il tuo capo"
     }
   }
 }

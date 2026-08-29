@@ -4,6 +4,7 @@
     "howItWorks": "How it works",
     "ourPromise": "Our promise",
     "ourStory": "Our story",
+    "offers": "Offers",
     "configureCta": "Configure my suit",
     "menu": "Menu"
   },
@@ -432,123 +433,410 @@
     },
     "options": {
       "occasions": {
-        "ceremony": { "label": "Ceremony", "sub": "Wedding, gala, major event.", "detail": "A formal, timeless look, designed to mark the big occasions." },
-        "business": { "label": "Business", "sub": "Office, professional meetings.", "detail": "A suit that inspires confidence and seriousness in professional daily life." },
-        "casual": { "label": "Casual", "sub": "Outings, smart-casual wear.", "detail": "A freer cut, for a less formal use without losing elegance." },
-        "daily": { "label": "Everyday", "sub": "Worn very regularly.", "detail": "A versatile, comfortable piece, built to last, day after day." }
+        "ceremony": {
+          "label": "Ceremony",
+          "sub": "Wedding, gala, major event.",
+          "detail": "A formal, timeless look, designed to mark the big occasions."
+        },
+        "business": {
+          "label": "Business",
+          "sub": "Office, professional meetings.",
+          "detail": "A suit that inspires confidence and seriousness in professional daily life."
+        },
+        "casual": {
+          "label": "Casual",
+          "sub": "Outings, smart-casual wear.",
+          "detail": "A freer cut, for a less formal use without losing elegance."
+        },
+        "daily": {
+          "label": "Everyday",
+          "sub": "Worn very regularly.",
+          "detail": "A versatile, comfortable piece, built to last, day after day."
+        }
       },
       "types": {
-        "suit": { "label": "Two-Piece Suit", "sub": "Jacket + Trousers" },
-        "blazer": { "label": "Blazer", "sub": "Top only" },
-        "trousers": { "label": "Trousers", "sub": "Bottom only" },
-        "shirt": { "label": "Made-to-measure shirt", "sub": "Paid in full" }
+        "suit": {
+          "label": "Two-Piece Suit",
+          "sub": "Jacket + Trousers"
+        },
+        "blazer": {
+          "label": "Blazer",
+          "sub": "Top only"
+        },
+        "trousers": {
+          "label": "Trousers",
+          "sub": "Bottom only"
+        },
+        "shirt": {
+          "label": "Made-to-measure shirt",
+          "sub": "Paid in full"
+        }
       },
       "jacketStyles": {
-        "roma": { "label": "Notch", "sub": "Classic construction, light shoulders & notch lapel.", "detail": "Traditional structure without excess, notch lapel. The ceremony suit par excellence." },
-        "milano": { "label": "Milano", "sub": "Classic construction, light shoulders & peak lapel.", "detail": "Same traditional structure as the Notch, but with a bolder peak lapel." },
-        "dracula": { "label": "Dracula", "sub": "Structured shoulders & peaked lapels.", "detail": "A powerful, charismatic look. Structured shoulders and peaked lapels that elongate the torso. Ideal for prestige ceremonies and evening events." }
+        "roma": {
+          "label": "Notch",
+          "sub": "Classic construction, light shoulders & notch lapel.",
+          "detail": "Traditional structure without excess, notch lapel. The ceremony suit par excellence."
+        },
+        "milano": {
+          "label": "Milano",
+          "sub": "Classic construction, light shoulders & peak lapel.",
+          "detail": "Same traditional structure as the Notch, but with a bolder peak lapel."
+        },
+        "dracula": {
+          "label": "Dracula",
+          "sub": "Structured shoulders & peaked lapels.",
+          "detail": "A powerful, charismatic look. Structured shoulders and peaked lapels that elongate the torso. Ideal for prestige ceremonies and evening events."
+        }
       },
       "jacketCuts": {
-        "classic": { "label": "Classic", "sub": "Straight cut, natural shoulders, timeless", "detail": "A timeless, comfortable cut that never goes out of style. Ideal for everyday wear." },
-        "slim": { "label": "Slim", "sub": "Fitted silhouette, modern, sleek", "detail": "Closer to the body for a sleeker, more contemporary silhouette." },
-        "relaxed": { "label": "Relaxed", "sub": "Loose cut, casual, contemporary", "detail": "More freedom of movement, a softer, more relaxed drape." }
+        "classic": {
+          "label": "Classic",
+          "sub": "Straight cut, natural shoulders, timeless",
+          "detail": "A timeless, comfortable cut that never goes out of style. Ideal for everyday wear."
+        },
+        "slim": {
+          "label": "Slim",
+          "sub": "Fitted silhouette, modern, sleek",
+          "detail": "Closer to the body for a sleeker, more contemporary silhouette."
+        },
+        "relaxed": {
+          "label": "Relaxed",
+          "sub": "Loose cut, casual, contemporary",
+          "detail": "More freedom of movement, a softer, more relaxed drape."
+        }
       },
       "closures": {
-        "one": { "label": "1 Button", "sub": "Minimalist and elegant.", "detail": "Elongates the silhouette, highlights the lapel. Ideal for formal occasions or evening events." },
-        "two": { "label": "2 Buttons", "sub": "The classic closure.", "detail": "Versatile and modern, suited to any occasion. The most common choice in contemporary tailoring." },
-        "db4x2": { "label": "Double-breasted", "sub": "Double-breasted, bold look.", "detail": "Two crossed rows of buttons. Inspires confidence and authority. A bold choice to stand out." }
+        "one": {
+          "label": "1 Button",
+          "sub": "Minimalist and elegant.",
+          "detail": "Elongates the silhouette, highlights the lapel. Ideal for formal occasions or evening events."
+        },
+        "two": {
+          "label": "2 Buttons",
+          "sub": "The classic closure.",
+          "detail": "Versatile and modern, suited to any occasion. The most common choice in contemporary tailoring."
+        },
+        "db4x2": {
+          "label": "Double-breasted",
+          "sub": "Double-breasted, bold look.",
+          "detail": "Two crossed rows of buttons. Inspires confidence and authority. A bold choice to stand out."
+        }
       },
       "linings": {
-        "full": { "label": "Full lining", "sub": "Body and sleeves fully lined.", "detail": "A perfect drape, effortless glide when putting it on. Premium finish. Ideal for formal suits and cold seasons." },
-        "half": { "label": "Half lining", "sub": "Lined on the upper half only.", "detail": "More breathable than a full lining, while keeping the jacket's structure. Perfect for spring and summer." },
-        "none": { "label": "Unlined", "sub": "Entirely unlined.", "detail": "Ultra-light and breathable. A relaxed, artisanal look. Recommended for summer fabrics like linen or cotton." }
+        "full": {
+          "label": "Full lining",
+          "sub": "Body and sleeves fully lined.",
+          "detail": "A perfect drape, effortless glide when putting it on. Premium finish. Ideal for formal suits and cold seasons."
+        },
+        "half": {
+          "label": "Half lining",
+          "sub": "Lined on the upper half only.",
+          "detail": "More breathable than a full lining, while keeping the jacket's structure. Perfect for spring and summer."
+        },
+        "none": {
+          "label": "Unlined",
+          "sub": "Entirely unlined.",
+          "detail": "Ultra-light and breathable. A relaxed, artisanal look. Recommended for summer fabrics like linen or cotton."
+        }
       },
       "colorFamilies": {
-        "bleu": { "label": "Blue", "shades": { "navy": "Navy", "dark-blue": "Midnight Blue", "cobalt": "Cobalt Blue" } },
-        "gris": { "label": "Grey", "shades": { "anthracite": "Charcoal", "gris-moyen": "Mid Grey", "gris-perle": "Pearl Grey" } },
-        "noir": { "label": "Black", "shades": { "noir-profond": "Deep Black", "noir-mat": "Matte Black", "noir-bleute": "Blue-Black" } },
-        "vert": { "label": "Dark Green", "shades": { "bouteille": "Bottle Green", "sapin": "Pine Green", "olive": "Dark Olive Green" } },
-        "marron": { "label": "Brown", "shades": { "chocolat": "Chocolate", "cognac": "Cognac", "chataigne": "Chestnut" } },
-        "beige": { "label": "Beige", "shades": { "sable": "Sand", "taupe": "Taupe", "lin": "Linen" } }
+        "bleu": {
+          "label": "Blue",
+          "shades": {
+            "navy": "Navy",
+            "dark-blue": "Midnight Blue",
+            "cobalt": "Cobalt Blue"
+          }
+        },
+        "gris": {
+          "label": "Grey",
+          "shades": {
+            "anthracite": "Charcoal",
+            "gris-moyen": "Mid Grey",
+            "gris-perle": "Pearl Grey"
+          }
+        },
+        "noir": {
+          "label": "Black",
+          "shades": {
+            "noir-profond": "Deep Black",
+            "noir-mat": "Matte Black",
+            "noir-bleute": "Blue-Black"
+          }
+        },
+        "vert": {
+          "label": "Dark Green",
+          "shades": {
+            "bouteille": "Bottle Green",
+            "sapin": "Pine Green",
+            "olive": "Dark Olive Green"
+          }
+        },
+        "marron": {
+          "label": "Brown",
+          "shades": {
+            "chocolat": "Chocolate",
+            "cognac": "Cognac",
+            "chataigne": "Chestnut"
+          }
+        },
+        "beige": {
+          "label": "Beige",
+          "shades": {
+            "sable": "Sand",
+            "taupe": "Taupe",
+            "lin": "Linen"
+          }
+        }
       },
       "patterns": {
-        "checks": { "label": "Checks", "sub": "Glen plaid, Prince of Wales, Windowpane…", "detail": "Subtle or bold, checks give character without overdoing it." },
-        "stripes": { "label": "Stripes", "sub": "Chalk stripe, Pinstripe, Tennis stripe…", "detail": "Stripes elongate the silhouette. A classic of English and Italian tailoring." },
-        "exotic": { "label": "Exotic patterns", "sub": "Herringbone, Houndstooth, Birdseye, Madras…", "detail": "For connoisseurs who want to stand out with subtlety." }
+        "checks": {
+          "label": "Checks",
+          "sub": "Glen plaid, Prince of Wales, Windowpane…",
+          "detail": "Subtle or bold, checks give character without overdoing it."
+        },
+        "stripes": {
+          "label": "Stripes",
+          "sub": "Chalk stripe, Pinstripe, Tennis stripe…",
+          "detail": "Stripes elongate the silhouette. A classic of English and Italian tailoring."
+        },
+        "exotic": {
+          "label": "Exotic patterns",
+          "sub": "Herringbone, Houndstooth, Birdseye, Madras…",
+          "detail": "For connoisseurs who want to stand out with subtlety."
+        }
       },
       "trouserCuts": {
-        "classic": { "label": "Classic", "sub": "Straight leg, clean drape.", "detail": "A timeless pair of trousers, neither too tight nor too loose. Goes with any jacket." },
-        "slim": { "label": "Slim", "sub": "Fitted along the whole leg.", "detail": "A modern, sleek silhouette, tapered towards the ankle. Ideal with a fitted jacket." },
-        "loose": { "label": "Loose", "sub": "Full leg, fluid drape.", "detail": "A relaxed, contemporary cut, more freedom of movement. Perfect with a relaxed jacket." }
+        "classic": {
+          "label": "Classic",
+          "sub": "Straight leg, clean drape.",
+          "detail": "A timeless pair of trousers, neither too tight nor too loose. Goes with any jacket."
+        },
+        "slim": {
+          "label": "Slim",
+          "sub": "Fitted along the whole leg.",
+          "detail": "A modern, sleek silhouette, tapered towards the ankle. Ideal with a fitted jacket."
+        },
+        "loose": {
+          "label": "Loose",
+          "sub": "Full leg, fluid drape.",
+          "detail": "A relaxed, contemporary cut, more freedom of movement. Perfect with a relaxed jacket."
+        }
       },
       "waistbands": {
-        "standard": { "label": "Standard", "sub": "Classic waistband, visible button.", "detail": "A simple, versatile setup, with belt loops, made for wearing a belt." },
-        "double": { "label": "Side adjusters", "sub": "Adjustable buckles on both sides.", "detail": "A military-inspired style: two adjustable buckles at the hips and a continuous front, no belt." }
+        "standard": {
+          "label": "Standard",
+          "sub": "Classic waistband, visible button.",
+          "detail": "A simple, versatile setup, with belt loops, made for wearing a belt."
+        },
+        "double": {
+          "label": "Side adjusters",
+          "sub": "Adjustable buckles on both sides.",
+          "detail": "A military-inspired style: two adjustable buckles at the hips and a continuous front, no belt."
+        }
       },
       "pleats": {
-        "none": { "label": "No pleats", "sub": "Flat front.", "detail": "The trousers fall straight against the leg. A clean, modern, versatile look." },
-        "single": { "label": "Single pleat", "sub": "One pleat per leg.", "detail": "A pleat that opens towards the side seam. More ease at the waist and comfort when sitting." },
-        "double": { "label": "Double pleat", "sub": "Two pleats per leg.", "detail": "Two pleats that open towards the side seam. Classic style, maximum fullness and comfort." }
+        "none": {
+          "label": "No pleats",
+          "sub": "Flat front.",
+          "detail": "The trousers fall straight against the leg. A clean, modern, versatile look."
+        },
+        "single": {
+          "label": "Single pleat",
+          "sub": "One pleat per leg.",
+          "detail": "A pleat that opens towards the side seam. More ease at the waist and comfort when sitting."
+        },
+        "double": {
+          "label": "Double pleat",
+          "sub": "Two pleats per leg.",
+          "detail": "Two pleats that open towards the side seam. Classic style, maximum fullness and comfort."
+        }
       },
       "hems": {
-        "plain": { "label": "Plain hem", "sub": "Clean finish, no cuff.", "detail": "The fabric is folded inside the leg for a clean finish. The most classic, versatile finish." },
-        "turnup4": { "label": "4cm cuff", "sub": "4cm turn-up.", "detail": "A cuff that reveals more of the ankle, elongates the silhouette and adds weight for a better drape." }
+        "plain": {
+          "label": "Plain hem",
+          "sub": "Clean finish, no cuff.",
+          "detail": "The fabric is folded inside the leg for a clean finish. The most classic, versatile finish."
+        },
+        "turnup4": {
+          "label": "4cm cuff",
+          "sub": "4cm turn-up.",
+          "detail": "A cuff that reveals more of the ankle, elongates the silhouette and adds weight for a better drape."
+        }
       },
       "buttonMaterials": {
-        "marron": { "label": "Amber horn", "sub": "Natural amber horn.", "detail": "The great classic of made-to-measure: amber reflections and warm marbling, each button slightly unique." },
-        "brun-craquele": { "label": "Dark brown horn", "sub": "Matte crackled effect.", "detail": "A deep brown with a naturally crackled texture, for a finish that's both discreet and bold." },
-        "noir": { "label": "Black horn", "sub": "Deep matte finish.", "detail": "A matte, solid black, resolutely understated. Goes with any fabric colour." },
-        "marbre": { "label": "Marbled horn", "sub": "Black & grey marbled effect.", "detail": "Grey and white veins on a dark base, for a button with a more graphic character." },
-        "bleu": { "label": "Blue-tinted horn", "sub": "Deep blue tint.", "detail": "A horn tinted in an intense midnight blue, for a discreet, refined touch of colour." },
-        "ivoire": { "label": "Ivory horn", "sub": "Light, smoked edge.", "detail": "A bright, light tone with slightly smoked edges, ideal for light fabrics and summer outfits." }
+        "marron": {
+          "label": "Amber horn",
+          "sub": "Natural amber horn.",
+          "detail": "The great classic of made-to-measure: amber reflections and warm marbling, each button slightly unique."
+        },
+        "brun-craquele": {
+          "label": "Dark brown horn",
+          "sub": "Matte crackled effect.",
+          "detail": "A deep brown with a naturally crackled texture, for a finish that's both discreet and bold."
+        },
+        "noir": {
+          "label": "Black horn",
+          "sub": "Deep matte finish.",
+          "detail": "A matte, solid black, resolutely understated. Goes with any fabric colour."
+        },
+        "marbre": {
+          "label": "Marbled horn",
+          "sub": "Black & grey marbled effect.",
+          "detail": "Grey and white veins on a dark base, for a button with a more graphic character."
+        },
+        "bleu": {
+          "label": "Blue-tinted horn",
+          "sub": "Deep blue tint.",
+          "detail": "A horn tinted in an intense midnight blue, for a discreet, refined touch of colour."
+        },
+        "ivoire": {
+          "label": "Ivory horn",
+          "sub": "Light, smoked edge.",
+          "detail": "A bright, light tone with slightly smoked edges, ideal for light fabrics and summer outfits."
+        }
       },
       "lapels": {
-        "notch": { "label": "Notch lapel", "sub": "Notch, the classic lapel.", "detail": "The most versatile shape, with a clean notch between the collar and lapel. Suits any occasion." },
-        "peak": { "label": "Peak lapel", "sub": "Peak, bold look.", "detail": "A lapel that points upward, more formal and bold. Traditionally paired with double-breasted jackets and formal wear." }
+        "notch": {
+          "label": "Notch lapel",
+          "sub": "Notch, the classic lapel.",
+          "detail": "The most versatile shape, with a clean notch between the collar and lapel. Suits any occasion."
+        },
+        "peak": {
+          "label": "Peak lapel",
+          "sub": "Peak, bold look.",
+          "detail": "A lapel that points upward, more formal and bold. Traditionally paired with double-breasted jackets and formal wear."
+        }
       },
       "lapelWidths": {
-        "8,5": { "label": "8.5 cm", "sub": "Slim and discreet: a low-profile lapel, very contemporary in its restraint, for a sleeker silhouette." },
-        "9,5": { "label": "9.5 cm", "sub": "Our recommendation: enough presence to give the jacket character, without ever tipping into excess." },
-        "11": { "label": "11 cm", "sub": "Wide and bold: the power-suit lapel, for a commanding look that immediately draws the eye." }
+        "8,5": {
+          "label": "8.5 cm",
+          "sub": "Slim and discreet: a low-profile lapel, very contemporary in its restraint, for a sleeker silhouette."
+        },
+        "9,5": {
+          "label": "9.5 cm",
+          "sub": "Our recommendation: enough presence to give the jacket character, without ever tipping into excess."
+        },
+        "11": {
+          "label": "11 cm",
+          "sub": "Wide and bold: the power-suit lapel, for a commanding look that immediately draws the eye."
+        }
       },
       "trouserLinings": {
-        "full": { "label": "Full lining", "sub": "Leg fully lined.", "detail": "Maximum comfort and a perfect glide when putting them on. Ideal for winter and structured fabrics." },
-        "half": { "label": "Half lining", "sub": "Lined to the knee.", "detail": "A good compromise between comfort and breathability: limits friction without weighing the trousers down." },
-        "none": { "label": "Unlined", "sub": "Entirely unlined.", "detail": "Light and breathable, for summer fabrics like linen or lightweight cotton." }
+        "full": {
+          "label": "Full lining",
+          "sub": "Leg fully lined.",
+          "detail": "Maximum comfort and a perfect glide when putting them on. Ideal for winter and structured fabrics."
+        },
+        "half": {
+          "label": "Half lining",
+          "sub": "Lined to the knee.",
+          "detail": "A good compromise between comfort and breathability: limits friction without weighing the trousers down."
+        },
+        "none": {
+          "label": "Unlined",
+          "sub": "Entirely unlined.",
+          "detail": "Light and breathable, for summer fabrics like linen or lightweight cotton."
+        }
       },
       "monogramPlacements": {
-        "inside": { "label": "Inside jacket", "sub": "Embroidered on the left side of the inner lining." },
-        "collar": { "label": "Under the collar", "sub": "Embroidered under the collar, discreet and refined." }
+        "inside": {
+          "label": "Inside jacket",
+          "sub": "Embroidered on the left side of the inner lining."
+        }
       },
       "monogramColors": {
-        "white": "White", "silver": "Silver", "grey": "Grey", "light-blue": "Sky Blue",
-        "navy": "Navy", "burgundy": "Burgundy", "gold": "Gold", "black": "Black"
+        "white": "White",
+        "silver": "Silver",
+        "grey": "Grey",
+        "light-blue": "Sky Blue",
+        "navy": "Navy",
+        "burgundy": "Burgundy",
+        "gold": "Gold",
+        "black": "Black"
       },
       "shirtFabrics": {
-        "blanc": { "label": "White", "sub": "The great classic, always right." },
-        "bleu-ciel": { "label": "Sky blue", "sub": "Fresh and versatile, the most worn after white." },
-        "bleu-fonce": { "label": "Dark blue", "sub": "Bolder, works as well alone as with a suit." },
-        "rose-pale": { "label": "Pale pink", "sub": "A discreet touch of colour, very popular in business settings." },
-        "raye-bleu": { "label": "Blue stripes", "sub": "Fine stripes on a light ground, an English classic." },
-        "raye-fine": { "label": "Tone-on-tone stripes", "sub": "A subtle texture, almost solid from a distance." }
+        "blanc": {
+          "label": "White",
+          "sub": "The great classic, always right."
+        },
+        "bleu-ciel": {
+          "label": "Sky blue",
+          "sub": "Fresh and versatile, the most worn after white."
+        },
+        "bleu-fonce": {
+          "label": "Dark blue",
+          "sub": "Bolder, works as well alone as with a suit."
+        },
+        "rose-pale": {
+          "label": "Pale pink",
+          "sub": "A discreet touch of colour, very popular in business settings."
+        },
+        "raye-bleu": {
+          "label": "Blue stripes",
+          "sub": "Fine stripes on a light ground, an English classic."
+        },
+        "raye-fine": {
+          "label": "Tone-on-tone stripes",
+          "sub": "A subtle texture, almost solid from a distance."
+        }
       },
       "shirtFits": {
-        "classic": { "label": "Classic", "sub": "Straight cut, comfortable.", "detail": "A timeless cut with ease throughout the chest. The most versatile everyday choice." },
-        "slim": { "label": "Fitted", "sub": "Sleeker silhouette, modern.", "detail": "Closer to the body at the waist and arms, for a clean look — perfect worn under a jacket." },
-        "relaxed": { "label": "Relaxed", "sub": "Loose cut, fluid drape.", "detail": "More freedom of movement and a softer drape — at ease outside the office." }
+        "classic": {
+          "label": "Classic",
+          "sub": "Straight cut, comfortable.",
+          "detail": "A timeless cut with ease throughout the chest. The most versatile everyday choice."
+        },
+        "slim": {
+          "label": "Fitted",
+          "sub": "Sleeker silhouette, modern.",
+          "detail": "Closer to the body at the waist and arms, for a clean look — perfect worn under a jacket."
+        },
+        "relaxed": {
+          "label": "Relaxed",
+          "sub": "Loose cut, fluid drape.",
+          "detail": "More freedom of movement and a softer drape — at ease outside the office."
+        }
       },
       "shirtCollars": {
-        "italien": { "label": "Italian collar", "sub": "Spread points, modern.", "detail": "An open, elegant collar, with or without a tie — the most versatile today." },
-        "boutonne": { "label": "Button-down collar", "sub": "Button-down, smart-casual.", "detail": "The collar points button onto the shirt — an American classic, perfect without a tie." },
-        "francais": { "label": "French collar", "sub": "Straight points, classic.", "detail": "The most formal collar, cut for a tie or bow tie." }
+        "italien": {
+          "label": "Italian collar",
+          "sub": "Spread points, modern.",
+          "detail": "An open, elegant collar, with or without a tie — the most versatile today."
+        },
+        "boutonne": {
+          "label": "Button-down collar",
+          "sub": "Button-down, smart-casual.",
+          "detail": "The collar points button onto the shirt — an American classic, perfect without a tie."
+        },
+        "francais": {
+          "label": "French collar",
+          "sub": "Straight points, classic.",
+          "detail": "The most formal collar, cut for a tie or bow tie."
+        }
       },
       "shirtCuffs": {
-        "simple": { "label": "Button cuff", "sub": "One button, discreet.", "detail": "The everyday cuff, just as easy to wear with or without a jacket." },
-        "mousquetaire": { "label": "French cuff", "sub": "For cufflinks.", "detail": "Fastens with cufflinks — the most formal touch, for special occasions." }
+        "simple": {
+          "label": "Button cuff",
+          "sub": "One button, discreet.",
+          "detail": "The everyday cuff, just as easy to wear with or without a jacket."
+        },
+        "mousquetaire": {
+          "label": "French cuff",
+          "sub": "For cufflinks.",
+          "detail": "Fastens with cufflinks — the most formal touch, for special occasions."
+        }
       },
       "shirtMonogramPlacements": {
-        "cuff": { "label": "Cuff", "sub": "Embroidered on the cuff, discreet and classic." },
-        "tail": { "label": "Shirt tail", "sub": "Embroidered at the bottom, invisible once worn." }
+        "cuff": {
+          "label": "Cuff",
+          "sub": "Embroidered on the cuff, discreet and classic."
+        },
+        "tail": {
+          "label": "Shirt tail",
+          "sub": "Embroidered at the bottom, invisible once worn."
+        }
       }
     },
     "summaryRows": {
@@ -589,6 +877,13 @@
       "deposit": "Deposit due",
       "delay": "Lead time",
       "delayValue": "2 – 3 weeks"
+    },
+    "resume": {
+      "title": "Resume your configuration?",
+      "body": "You had started configuring: {piece}. Would you like to pick up where you left off, or start over?",
+      "resumeCta": "Resume",
+      "freshCta": "Start over",
+      "pieceFallback": "your piece"
     }
   }
 }

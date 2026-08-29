@@ -173,9 +173,10 @@ export const LININGS = [
   },
 ];
 
+// "Under the collar" placement was offered at launch but the atelier doesn't
+// actually produce it — removed rather than left selectable for nothing.
 export const MONOGRAM_PLACEMENTS = [
   { id: "inside", label: "Intérieur veste", sub: "Brodé sur le côté gauche de la doublure intérieure." },
-  { id: "collar", label: "Dessous du col", sub: "Brodé sous le col, discret et raffiné." },
 ];
 
 export const MONOGRAM_COLORS = [
