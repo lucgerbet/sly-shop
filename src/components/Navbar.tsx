@@ -1,16 +1,20 @@
 "use client";
 import { useState, useEffect } from "react";
-import Link from "next/link";
-
-const links = [
-  { label: "Costume", href: "#categories" },
-  { label: "Comment ça marche", href: "#process" },
-  { label: "Notre promesse", href: "#promise" },
-];
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import LangSwitcher from "./LangSwitcher";
 
 export default function Navbar() {
+  const t = useTranslations("Nav");
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const links = [
+    { label: t("costume"), href: "/#categories" },
+    { label: t("howItWorks"), href: "/#process" },
+    { label: t("ourPromise"), href: "/#promise" },
+    { label: t("ourStory"), href: "/notre-histoire" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -27,12 +31,12 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-6 md:px-10 h-[70px] flex items-center justify-between gap-8">
 
         {/* Left: nav links (desktop) */}
-        <nav className="hidden md:flex items-center gap-8 flex-1">
+        <nav className="hidden lg:flex items-center gap-6 flex-1">
           {links.map((l) => (
             <Link
               key={l.href}
               href={l.href}
-              className="text-[13px] tracking-wide text-muted hover:text-ink transition-colors"
+              className="text-[13px] tracking-wide text-muted hover:text-ink transition-colors whitespace-nowrap"
             >
               {l.label}
             </Link>
@@ -47,22 +51,23 @@ export default function Navbar() {
           SLY Atelier
         </Link>
 
-        {/* Right: CTA (desktop) */}
-        <div className="hidden md:flex items-center flex-1 justify-end">
+        {/* Right: language switcher + CTA (desktop) */}
+        <div className="hidden lg:flex items-center flex-1 justify-end gap-6">
+          <LangSwitcher />
           <Link
             href="/customize"
             className="px-5 py-2.5 text-[13px] tracking-wide bg-choco text-white hover:bg-ink transition-colors"
           >
-            Configurer mon costume
+            {t("configureCta")}
           </Link>
         </div>
 
         {/* Mobile burger */}
         <button
-          aria-label="Menu"
+          aria-label={t("menu")}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden flex flex-col gap-[5px] p-2"
+          className="lg:hidden flex flex-col gap-[5px] p-2"
         >
           <span className={`block h-px w-5 bg-ink transition-transform ${open ? "translate-y-[6px] rotate-45" : ""}`} />
           <span className={`block h-px w-5 bg-ink transition-opacity ${open ? "opacity-0" : ""}`} />
@@ -72,7 +77,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden border-t border-border bg-white px-6 py-6 flex flex-col gap-5">
+        <div className="lg:hidden border-t border-border bg-white px-6 py-6 flex flex-col gap-5">
           {links.map((l) => (
             <Link
               key={l.href}
@@ -83,12 +88,13 @@ export default function Navbar() {
               {l.label}
             </Link>
           ))}
+          <LangSwitcher className="mt-1" />
           <Link
             href="/customize"
             onClick={() => setOpen(false)}
             className="mt-2 px-5 py-3 text-center text-[13px] tracking-wide bg-choco text-white"
           >
-            Configurer mon costume
+            {t("configureCta")}
           </Link>
         </div>
       )}

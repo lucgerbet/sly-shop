@@ -1,31 +1,18 @@
-import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import FadeUp from "./FadeUp";
 
-const requirements = [
-  {
-    icon: "👤",
-    title: "Une autre personne",
-    desc: "Pour tenir le mètre et noter les mesures pendant que vous restez droit et naturel.",
-  },
-  {
-    icon: "📏",
-    title: "Un mètre ruban",
-    desc: "Souple, de couturière. Disponible en pharmacie ou en mercerie pour moins de 2 €.",
-  },
-  {
-    icon: "🕐",
-    title: "1 heure devant vous",
-    desc: "Le rendez-vous dure 45 min en moyenne. Prévoir un peu de marge pour ne pas être pressé.",
-  },
-  {
-    icon: "🤫",
-    title: "Un endroit calme",
-    desc: "Connexion stable, bonne lumière. Une pièce sans bruit de fond pour qu'on puisse bien communiquer.",
-  },
-];
-
 export default function LucSection() {
+  const t = useTranslations("LucSection");
+
+  const requirements = [
+    { n: "01", title: t("req1Title"), desc: t("req1Desc") },
+    { n: "02", title: t("req2Title"), desc: t("req2Desc") },
+    { n: "03", title: t("req3Title"), desc: t("req3Desc") },
+    { n: "04", title: t("req4Title"), desc: t("req4Desc") },
+  ];
+
   return (
     <section className="border-t border-border py-24 md:py-32 px-6 md:px-10">
       <div className="mx-auto max-w-7xl">
@@ -38,7 +25,7 @@ export default function LucSection() {
             <div className="relative aspect-[3/4] overflow-hidden">
               <Image
                 src="/photos/luc.jpg"
-                alt="Luc — SLY Atelier"
+                alt={t("photoAlt")}
                 fill
                 className="object-cover object-top"
               />
@@ -48,28 +35,33 @@ export default function LucSection() {
           {/* Text */}
           <FadeUp delay={120} className="flex flex-col gap-6">
             <p className="text-[11px] uppercase tracking-[0.3em] text-cherry font-medium">
-              Votre styliste
+              {t("eyebrow")}
             </p>
             <h2 className="font-brand text-4xl md:text-5xl text-ink leading-tight">
-              Un rendez-vous
-              <br />
-              avec Luc.
+              {t("heading")}
             </h2>
             <p className="text-base md:text-lg text-muted leading-relaxed font-light">
-              Chaque costume commence par un appel privé. Luc vous guide sur le choix
-              du style, de la coupe et des détails, puis prend vos mesures avec vous
-              en direct — même à distance.
+              {t("paragraph1")}
             </p>
             <p className="text-base md:text-lg text-muted leading-relaxed font-light">
-              Pas de boutique, pas de file d&apos;attente. Juste vous, Luc, et le costume
-              qu&apos;il vous faut.
+              {t("paragraph2")}
             </p>
-            <div className="mt-2">
+            <p className="text-base md:text-lg text-muted leading-relaxed font-light">
+              {t("paragraph3")}
+            </p>
+            <div className="mt-2 flex flex-wrap items-center gap-x-8 gap-y-3">
               <Link
                 href="/customize"
                 className="inline-flex items-center gap-3 text-sm tracking-wide text-ink border-b border-ink pb-1 hover:text-choco hover:border-choco transition-colors"
               >
-                Prendre rendez-vous
+                {t("bookCta")}
+                <span>→</span>
+              </Link>
+              <Link
+                href="/notre-histoire"
+                className="inline-flex items-center gap-3 text-sm tracking-wide text-muted border-b border-border pb-1 hover:text-choco hover:border-choco transition-colors"
+              >
+                {t("storyCta")}
                 <span>→</span>
               </Link>
             </div>
@@ -80,12 +72,12 @@ export default function LucSection() {
         <FadeUp>
           <div className="border-t border-border pt-14">
             <p className="text-[11px] uppercase tracking-[0.3em] text-cherry font-medium mb-10">
-              Ce dont vous avez besoin pour le rendez-vous
+              {t("requirementsEyebrow")}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {requirements.map((req) => (
                 <div key={req.title} className="flex flex-col gap-3">
-                  <span className="text-2xl">{req.icon}</span>
+                  <span className="font-brand text-3xl text-border leading-none">{req.n}</span>
                   <h3 className="font-medium text-ink text-base">{req.title}</h3>
                   <p className="text-sm text-muted font-light leading-relaxed">{req.desc}</p>
                 </div>

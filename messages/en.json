@@ -1,0 +1,594 @@
+{
+  "Nav": {
+    "costume": "Suit",
+    "howItWorks": "How it works",
+    "ourPromise": "Our promise",
+    "ourStory": "Our story",
+    "configureCta": "Configure my suit",
+    "menu": "Menu"
+  },
+  "Footer": {
+    "tagline": "Made-to-measure suits · Online · Delivered in 2–3 weeks",
+    "contact": "Contact",
+    "legalNotice": "Legal notice",
+    "terms": "Terms of sale",
+    "privacyPolicy": "Privacy policy",
+    "productionNote": "Made-to-measure garments are crafted after the order is confirmed. Production starts once your measurements are validated.",
+    "copyright": "© {year} SLY Atelier"
+  },
+  "Hero": {
+    "eyebrow": "Made-to-measure suits · Online",
+    "title": "A suit <em>tailored</em> for you.",
+    "description": "A two-piece suit made to measure for <price>€645</price>, half-canvas construction and hand-stitched shoulders, delivered in 2 to 3 weeks. A private appointment with Luc to define your style and take your measurements together.",
+    "configureCta": "Configure my suit",
+    "howItWorksCta": "How it works",
+    "stripPrice": "All-inclusive price",
+    "stripPriceValue": "€645",
+    "stripDelay": "Delivery time",
+    "stripDelayValue": "2 – 3 weeks",
+    "stripAppointment": "Appointment with Luc",
+    "stripAppointmentValue": "Included",
+    "imageAlt": "Made-to-measure suit by SLY Atelier"
+  },
+  "Categories": {
+    "eyebrow": "Collection",
+    "heading": "Choose your piece",
+    "configureCta": "Configure →",
+    "suit": {
+      "label": "Two-Piece Suit",
+      "sub": "The complete formula",
+      "price": "From €645",
+      "description": "Matching jacket and trousers, tailored to your proportions and your style.",
+      "photoAlt": "Striped suit"
+    },
+    "blazer": {
+      "label": "Made-to-measure blazer",
+      "sub": "Top only",
+      "price": "From €475",
+      "description": "A blazer alone to pair with a trousers you already own, or wear casual.",
+      "photoAlt": "Striped navy blazer"
+    },
+    "trousers": {
+      "label": "Made-to-measure trousers",
+      "sub": "Bottom only",
+      "price": "From €199",
+      "description": "Suit trousers or chinos, cut to your build and your preferences.",
+      "photoAlt": "Striped suit trousers"
+    },
+    "shirt": {
+      "label": "Made-to-measure shirt",
+      "sub": "Paid in full",
+      "price": "€135",
+      "description": "Collar, cuff, fabric and fit chosen with Luc — delivered just like the rest, in 2 to 3 weeks.",
+      "photoAlt": ""
+    }
+  },
+  "Process": {
+    "eyebrow": "Process",
+    "heading": "Simple. Guided. Personal.",
+    "step1Title": "Configure online",
+    "step1Body": "Choose your piece (suit, blazer, trousers or shirt), your style, and your colour and fit preferences.",
+    "step2Title": "Appointment with Luc",
+    "step2Body": "A private video call to refine your style, confirm your choices, and take your measurements together, step by step.",
+    "step3Title": "Made-to-measure production",
+    "step3Body": "Your piece is crafted from your validated brief by experienced artisans.",
+    "step4Title": "Delivery in 2 – 3 weeks",
+    "step4Body": "Your suit is inspected before shipping. Luc remains available after delivery to support you."
+  },
+  "LucSection": {
+    "eyebrow": "Your stylist",
+    "heading": "An appointment with Luc.",
+    "paragraph1": "Every suit starts with a private call. Luc guides you through the choice of style, cut and details, then takes your measurements with you live, even remotely.",
+    "paragraph2": "No shop, no waiting line. Just you, Luc, and the suit you need.",
+    "paragraph3": "A former high-level athlete and ESCP graduate, Luc lived and worked in six countries before learning cutting and tailoring, in France and then in Shanghai. SLY Atelier was born from that same standard: the craftsmanship of a great atelier, without the address that makes it out of reach.",
+    "bookCta": "Book an appointment",
+    "storyCta": "Discover our story",
+    "photoAlt": "Luc, SLY Atelier",
+    "requirementsEyebrow": "What you'll need for the appointment",
+    "req1Title": "Another person",
+    "req1Desc": "To hold the tape and note down the measurements while you stand straight and natural.",
+    "req2Title": "A tape measure",
+    "req2Desc": "A soft, tailor's tape measure. Available at a pharmacy or haberdashery for under €2.",
+    "req3Title": "1 hour to spare",
+    "req3Desc": "The appointment lasts 45 minutes on average. Leave yourself a little margin so you're not rushed.",
+    "req4Title": "A quiet space",
+    "req4Desc": "Stable connection, good light. A room without background noise so we can communicate clearly."
+  },
+  "Promise": {
+    "eyebrow": "Our promise",
+    "heading": "Ordering made-to-measure online, with total confidence.",
+    "subheading": "A €150 deposit reserves your video appointment — nothing goes into production without your final validation, fabric and measurements in hand.",
+    "item1Title": "Genuinely made to measure",
+    "item1Body": "Every piece is produced to your exact measurements, confirmed during the appointment. No standard sizing.",
+    "item2Title": "Half-canvas construction",
+    "item2Body": "An internal horsehair canvas, sewn rather than fused as with most online competitors. More structure, more durability over time.",
+    "item3Title": "Hand-stitched shoulders",
+    "item3Body": "The Milanese shoulder is hand-set by our atelier: a finish usually only found on far more expensive suits.",
+    "item4Title": "Transparent pricing",
+    "item4Body": "€645 all-inclusive: appointment, production, quality control and delivery. No hidden fees.",
+    "item5Title": "Inspected before shipping",
+    "item5Body": "Your piece is inspected before it ships. It only leaves the atelier once it meets our standard.",
+    "item6Title": "Support after delivery",
+    "item6Body": "Luc remains available after delivery to answer your questions and guide you if needed."
+  },
+  "CTABanner": {
+    "eyebrow": "Ready to start?",
+    "heading": "Your suit is waiting.",
+    "configureCta": "Configure my suit",
+    "learnMoreCta": "Learn more",
+    "stat1Value": "€645",
+    "stat1Label": "All-inclusive",
+    "stat2Value": "2–3 wks",
+    "stat2Label": "Delivery time",
+    "stat3Value": "100%",
+    "stat3Label": "Made to measure",
+    "stat4Value": "1",
+    "stat4Label": "Appointment with Luc"
+  },
+  "NotreHistoire": {
+    "eyebrow": "Our story",
+    "quote": "The dragon does not roar in the valley. It withdraws into the mountain, and it is the mountain that becomes sacred.",
+    "paragraph1": "SLY comes from 山龙隐 (Shān Lóng Yǐn): the dragon hidden in the mountain. Not absent — silent by choice, visible to those who know where to look.",
+    "paragraph2": "Before cutting a single piece of fabric, Luc learned to measure himself against others for real, in competition, at the highest level. That level never lasts. It took another discipline just as demanding: ESCP, where the rigour changes ground but stays the same.",
+    "paragraph3": "Then six countries. China, Italy, the United Kingdom, France, Australia, Malta — not on holiday, but to live and work there. It was in a small atelier in France, then in Shanghai at Atelier Fusari, a house established at the Ritz-Carlton for over fifteen years, that this standard finally became a craft: cutting and tailoring.",
+    "paragraph4": "This craftsmanship usually stays locked inside one place. A palace, an address, an appointment book reserved for a handful of clients who can travel there.",
+    "paragraph5": "SLY Atelier keeps the craft (the hand-sewn canvas, the shoulder set stitch by stitch, the meticulous measurements) and removes the address. A video call, wherever you are in the world. The same dragon, just easier to find, for those who know where to look.",
+    "cta": "Configure my suit"
+  },
+  "Metadata": {
+    "home": {
+      "title": "SLY Atelier — Made-to-measure suits",
+      "description": "A two-piece made-to-measure suit for €645, delivered in 2 to 3 weeks. A private appointment with Luc to take your measurements together."
+    },
+    "customize": {
+      "title": "Configure your piece — SLY Atelier",
+      "description": "Configure your made-to-measure suit, blazer, trousers or shirt: style, fabric, buttons, lining. Then book your video call with Luc."
+    },
+    "notreHistoire": {
+      "title": "Our story — SLY Atelier",
+      "description": "SLY comes from 山龙隐 (Shān Lóng Yǐn), the dragon hidden in the mountain. The story of Luc and SLY Atelier, from traditional tailoring to made-to-measure by video call."
+    },
+    "success": {
+      "title": "Payment confirmed — SLY Atelier"
+    }
+  },
+  "LangSwitcher": {
+    "label": "Language"
+  },
+  "Success": {
+    "verifying": "Verifying payment…",
+    "notConfirmedTitle": "Payment not confirmed.",
+    "notConfirmedBody": "Something went wrong, or the payment couldn't be verified. Contact Luc if you were charged.",
+    "backHome": "← Back to home",
+    "paidTitle": "Payment of €{amount} received.",
+    "bookingSubtitle": "Last step: book your slot with Luc below.",
+    "prepareStrong": "Before the appointment, get ready:",
+    "prepareRest": "a tailor's tape measure, another person to help you, and a quiet space with a good connection.",
+    "widgetFallback": "Calendar not showing?",
+    "widgetFallbackLink": "Book directly on Calendly →",
+    "loading": "Loading…",
+    "doneTitle": "Order confirmed.",
+    "doneBody": "Your appointment is on Luc's calendar. You'll receive a confirmation email with the Google Meet link. Remember to get your tape measure ready before the call.",
+    "referralPrompt": "Know someone who'd love a made-to-measure suit?",
+    "shareCta": "Share SLY Atelier →",
+    "shareSubject": "A made-to-measure suit, without the hassle",
+    "shareBody": "I just ordered my made-to-measure suit from SLY Atelier — it's all done online, with a video call to define the style and take measurements together.\n\nhttps://www.sly-atelier.com"
+  },
+  "Configurator": {
+    "ui": {
+      "quit": "Exit",
+      "back": "← Back",
+      "continue": "Continue →",
+      "step": "Step {current} / {total}",
+      "recommended": "Recommended"
+    },
+    "phases": {
+      "piece": "Piece",
+      "veste": "Jacket",
+      "pantalon": "Trousers",
+      "chemise": "Shirt",
+      "mesures": "Measurements",
+      "reservation": "Booking"
+    },
+    "stepLabels": {
+      "occasion": "Occasion",
+      "piece": "Piece",
+      "tissu": "Fabric",
+      "contact": "Contact",
+      "coupe": "Cut",
+      "col": "Collar",
+      "poignet": "Cuff",
+      "monogramme": "Monogram",
+      "mensurations": "Measurements",
+      "recap": "Recap",
+      "coordonnees": "Details",
+      "paiement": "Payment",
+      "couleur": "Colour",
+      "veste": "Jacket",
+      "fermeture": "Closure",
+      "boutons": "Buttons",
+      "doublure": "Lining",
+      "revers": "Lapel",
+      "pantalon": "Trousers",
+      "ceinture": "Waistband",
+      "plis": "Pleats",
+      "ourlet": "Hem"
+    },
+    "occasion": {
+      "title": "For which occasion?",
+      "subtitle": "This helps us tailor our style advice at the appointment."
+    },
+    "type": {
+      "title": "What would you like to order?",
+      "subtitle": "Choose your main piece."
+    },
+    "jacket": {
+      "title": "Jacket style",
+      "subtitle": "Each style corresponds to a different construction. Luc will guide you through the details.",
+      "photoAlt": "{label} jacket"
+    },
+    "jacketCut": {
+      "title": "Jacket cut",
+      "subtitle": "Independent of the lapel style, choose the jacket's overall silhouette."
+    },
+    "closure": {
+      "title": "Jacket closure",
+      "subtitle": "The number of buttons changes the jacket's silhouette and character.",
+      "photoAlt": "{label} closure"
+    },
+    "jacketButtons": {
+      "title": "Jacket buttons",
+      "subtitle": "The button material adds a touch of character and finish."
+    },
+    "lining": {
+      "title": "Jacket lining",
+      "subtitle": "The lining affects the garment's comfort, breathability and interior finish.",
+      "reassureStrong": "This isn't a colour choice.",
+      "reassureRest": "The lining colour is chosen with Luc at the appointment, fabrics in hand. Here, you're choosing the construction technique, which determines how structured or soft the jacket will be, and how warm it is to wear."
+    },
+    "color": {
+      "title": "Colour & pattern",
+      "subtitle": "A general preference: the exact fabric will be chosen with Luc at the appointment.",
+      "shadeLabel": "Shade of {family}",
+      "finishLabel": "Finish",
+      "solid": "Solid colour",
+      "pattern": "Patterned",
+      "textureTag": "· real fabric",
+      "customCta": "None of these shades or patterns work for you?",
+      "customCtaActive": "✓ We'll discuss it together at the appointment.",
+      "customDesc": "Describe the colour or pattern you have in mind. Luc will show you matching fabrics, in hand, during the call.",
+      "reassureStrong": "Nothing is set in stone.",
+      "reassureRest": "Here you're choosing a direction: the exact fabric (material, shade, precise pattern) is chosen with Luc at the appointment, fabrics in hand. If a material doesn't convince you, we change it, at no cost."
+    },
+    "shirtFit": {
+      "title": "Shirt fit",
+      "subtitle": "Choose the shirt's overall ease."
+    },
+    "shirtCollar": {
+      "title": "Collar",
+      "subtitle": "The collar shape changes the shirt's whole character."
+    },
+    "shirtCuff": {
+      "title": "Cuff",
+      "subtitle": "Simple for every day, French cuff for special occasions."
+    },
+    "shirtColor": {
+      "title": "Fabric & colour",
+      "subtitle": "A general preference: the exact fabric will be chosen with Luc at the appointment.",
+      "customCta": "None of these shades work for you?",
+      "customCtaActive": "✓ We'll discuss it together at the appointment.",
+      "customDesc": "Describe the colour or pattern you have in mind. Luc will show you matching fabrics, in hand, during the call.",
+      "reassureStrong": "Nothing is set in stone.",
+      "reassureRest": "Here you're choosing a direction: the exact fabric (material, shade, precise pattern) is chosen with Luc at the appointment, fabrics in hand. If a material doesn't convince you, we change it, at no cost."
+    },
+    "contact": {
+      "title": "Your details",
+      "subtitle": "So we can reach you if needed, and so you can pick up your configuration where you left it.",
+      "firstName": "First name",
+      "firstNamePlaceholder": "John",
+      "lastName": "Last name",
+      "lastNamePlaceholder": "Smith",
+      "email": "Email",
+      "emailPlaceholder": "john@email.com"
+    },
+    "trouserCut": {
+      "title": "Trouser cut",
+      "subtitleWithJacket": "The trousers use the same fabric and colour as your jacket. All that's left is choosing the cut.",
+      "subtitleNoJacket": "Choose the cut that suits you best.",
+      "recommendationPrefix": "You chose a",
+      "recommendationSuffix": "jacket cut, so we recommend the cut suggested below for a harmonious drape.",
+      "photoAlt": "{label} trousers"
+    },
+    "lapel": {
+      "title": "Lapel",
+      "subtitle": "The lapel shape changes the jacket's character.",
+      "widthLabel": "Lapel width",
+      "photoAlt": "{label}, {width}"
+    },
+    "trouserButtons": {
+      "title": "Trouser buttons",
+      "subtitle": "Same material choice as the jacket, for perfect consistency.",
+      "autoSyncNote": "By default, the trouser buttons match the jacket's for perfect consistency. Feel free to choose others."
+    },
+    "waistband": {
+      "title": "Waistband",
+      "subtitle": "The waistband closure type changes the trousers' look and comfort.",
+      "widthLabel": "Waistband width",
+      "photoAlt": "{label} waistband"
+    },
+    "pleats": {
+      "title": "Pleats",
+      "subtitle": "Waist pleats change the trousers' fullness, comfort and look.",
+      "photoAlt": "{label} trousers"
+    },
+    "hem": {
+      "title": "Hem",
+      "subtitle": "The leg-opening finish changes the trousers' look and drape.",
+      "photoAlt": "Hem, {label}"
+    },
+    "sizing": {
+      "title": "A few details",
+      "subtitle": "So Luc arrives at the appointment with a sense of your build.",
+      "neckSize": "Neck size *",
+      "sleeveLength": "Sleeve length *",
+      "height": "Height *",
+      "weight": "Weight *",
+      "jacketSizeLabel": "Usual jacket size (retail)",
+      "waistSizeLabel": "Usual waist size (retail)",
+      "tapeMeasureQuestion": "Do you have a tailor's tape measure, or can you get one before the appointment?",
+      "tapeYes": "Yes, I have one",
+      "tapeNo": "No, I need one",
+      "tapeShipNote": "Luc will mail you a tape measure before the appointment. Enter your delivery address.",
+      "address": "Address",
+      "addressPlaceholder": "221B Baker Street",
+      "city": "City",
+      "cityPlaceholder": "London",
+      "zip": "Postal code",
+      "zipPlaceholder": "NW1 6XE",
+      "confidentialNote": "This information stays confidential and is only shared with Luc.",
+      "reassureStrong": "Nothing final here.",
+      "reassureRest": "These are just reference points. Luc takes and checks every measurement with you, live during the video call (25+ points, under 1cm tolerance). Nothing goes into production without your validation."
+    },
+    "summary": {
+      "title": "Your summary",
+      "nextStepStrong": "Next step.",
+      "nextStepRest": "After the deposit is paid, you'll book your slot with Luc and receive a confirmation email with the Google Meet link.",
+      "detailsTitle": "Last details",
+      "message": "Message (optional)",
+      "messagePlaceholder": "Special occasion, desired timeline, questions...",
+      "referredBy": "Who referred you to SLY? (optional)",
+      "referredByPlaceholder": "Person's name",
+      "promoCode": "Promo code (optional)",
+      "promoCodePlaceholder": "e.g.: SLY ATELIER",
+      "promoApplied": "✓ {label} applied — {price} instead of {originalPrice}.",
+      "promoInvalid": "This code isn't valid for this piece.",
+      "submitCta": "Continue to payment"
+    },
+    "monogram": {
+      "title": "Monogram",
+      "jacketSubtitle": "Embroider your initials inside your jacket. Optional.",
+      "shirtSubtitle": "Embroider your initials on the shirt. Optional.",
+      "yes": "Yes, I want a monogram",
+      "no": "No thanks",
+      "placement": "Placement",
+      "initials": "Initials",
+      "initialsMax": "(15 characters max)",
+      "initialsPlaceholder": "e.g.: J.S. or John S.",
+      "color": "Thread colour"
+    },
+    "transition": {
+      "eyebrow": "First step complete",
+      "titlePrefix": "Thank you for",
+      "titleSuffix": "configuring your {piece}.",
+      "titleFallback": "suit",
+      "quote": "SLY comes from 山龙隐 (Shān Lóng Yǐn), the dragon hidden in the mountain. This configurator is only a first step: it lets Luc understand your vision before receiving you privately.",
+      "paragraph2Prefix": "It's together, during the private call, that you'll choose the",
+      "paragraph2Fabric": "fabric",
+      "paragraph2Mid": "(wool, linen, cotton, cashmere…), the",
+      "paragraph2Buttons": "buttons",
+      "paragraph2Suffix": ", the finishing details, and Luc will take your measurements live.",
+      "paragraph3Prefix": "At the next step,",
+      "paragraph3Strong": "book your slot directly",
+      "paragraph3Suffix": "in Luc's calendar. The appointment is confirmed instantly.",
+      "expectTitle": "What to expect at the appointment",
+      "expect1": "Choice of fabric and material",
+      "expect2": "Selection of buttons and trims",
+      "expect3": "Measurements guided by Luc",
+      "expect4": "Final validation of style and details",
+      "storyLink": "Want to know more about SLY? Discover our story"
+    },
+    "payment": {
+      "eyebrow": "Booking",
+      "depositTitle": "Booking deposit",
+      "paymentTitle": "Payment",
+      "fullDescStrong": "{price}",
+      "fullDescRest": "is paid in one go, now. The video appointment with Luc for measurements is booked right after.",
+      "fullDescPrefix": "The payment of",
+      "depositDescPrefix": "To book your appointment with Luc, a",
+      "depositDescStrong": "€{deposit} deposit",
+      "depositDescMid": "is required. It's",
+      "depositDescDeducted": "deducted from the total price",
+      "depositDescMid2": "of your order. If you decide not to finalise after the appointment,",
+      "depositDescRefund": "€{refundable} is refunded to you",
+      "depositDescSuffix": "(the remaining €{nonRefundable} cover the consultation time).",
+      "pieceNowDue": "due now",
+      "pieceTotalPrice": "total price",
+      "depositNowDue": "Deposit due now",
+      "balanceAtAppointment": "Balance at the appointment",
+      "balanceRest": "The rest, after validation with Luc",
+      "prepareStrong": "Before the appointment, get ready:",
+      "prepareRest": "a tailor's tape measure (yours, or the one Luc sends you if you don't have one), another person to help you take measurements, and a quiet space with a good connection for the video call.",
+      "errorMsg": "Something went wrong while preparing the payment. Try again, or contact Luc if the problem persists.",
+      "redirecting": "Redirecting to secure payment…",
+      "payFullCta": "Pay {price} and book →",
+      "payDepositCta": "Pay the €{deposit} deposit and book →",
+      "pieceFallback": "Piece"
+    },
+    "priceBar": {
+      "included": "all-inclusive: appointment, production, delivery",
+      "fullPaymentPrefix": "Paid in",
+      "fullPaymentStrong": "one go",
+      "depositPrefix": "Deposit:"
+    },
+    "options": {
+      "occasions": {
+        "ceremony": { "label": "Ceremony", "sub": "Wedding, gala, major event.", "detail": "A formal, timeless look, designed to mark the big occasions." },
+        "business": { "label": "Business", "sub": "Office, professional meetings.", "detail": "A suit that inspires confidence and seriousness in professional daily life." },
+        "casual": { "label": "Casual", "sub": "Outings, smart-casual wear.", "detail": "A freer cut, for a less formal use without losing elegance." },
+        "daily": { "label": "Everyday", "sub": "Worn very regularly.", "detail": "A versatile, comfortable piece, built to last, day after day." }
+      },
+      "types": {
+        "suit": { "label": "Two-Piece Suit", "sub": "Jacket + Trousers" },
+        "blazer": { "label": "Blazer", "sub": "Top only" },
+        "trousers": { "label": "Trousers", "sub": "Bottom only" },
+        "shirt": { "label": "Made-to-measure shirt", "sub": "Paid in full" }
+      },
+      "jacketStyles": {
+        "roma": { "label": "Notch", "sub": "Classic construction, light shoulders & notch lapel.", "detail": "Traditional structure without excess, notch lapel. The ceremony suit par excellence." },
+        "milano": { "label": "Milano", "sub": "Classic construction, light shoulders & peak lapel.", "detail": "Same traditional structure as the Notch, but with a bolder peak lapel." },
+        "dracula": { "label": "Dracula", "sub": "Structured shoulders & peaked lapels.", "detail": "A powerful, charismatic look. Structured shoulders and peaked lapels that elongate the torso. Ideal for prestige ceremonies and evening events." }
+      },
+      "jacketCuts": {
+        "classic": { "label": "Classic", "sub": "Straight cut, natural shoulders, timeless", "detail": "A timeless, comfortable cut that never goes out of style. Ideal for everyday wear." },
+        "slim": { "label": "Slim", "sub": "Fitted silhouette, modern, sleek", "detail": "Closer to the body for a sleeker, more contemporary silhouette." },
+        "relaxed": { "label": "Relaxed", "sub": "Loose cut, casual, contemporary", "detail": "More freedom of movement, a softer, more relaxed drape." }
+      },
+      "closures": {
+        "one": { "label": "1 Button", "sub": "Minimalist and elegant.", "detail": "Elongates the silhouette, highlights the lapel. Ideal for formal occasions or evening events." },
+        "two": { "label": "2 Buttons", "sub": "The classic closure.", "detail": "Versatile and modern, suited to any occasion. The most common choice in contemporary tailoring." },
+        "db4x2": { "label": "Double-breasted", "sub": "Double-breasted, bold look.", "detail": "Two crossed rows of buttons. Inspires confidence and authority. A bold choice to stand out." }
+      },
+      "linings": {
+        "full": { "label": "Full lining", "sub": "Body and sleeves fully lined.", "detail": "A perfect drape, effortless glide when putting it on. Premium finish. Ideal for formal suits and cold seasons." },
+        "half": { "label": "Half lining", "sub": "Lined on the upper half only.", "detail": "More breathable than a full lining, while keeping the jacket's structure. Perfect for spring and summer." },
+        "none": { "label": "Unlined", "sub": "Entirely unlined.", "detail": "Ultra-light and breathable. A relaxed, artisanal look. Recommended for summer fabrics like linen or cotton." }
+      },
+      "colorFamilies": {
+        "bleu": { "label": "Blue", "shades": { "navy": "Navy", "dark-blue": "Midnight Blue", "cobalt": "Cobalt Blue" } },
+        "gris": { "label": "Grey", "shades": { "anthracite": "Charcoal", "gris-moyen": "Mid Grey", "gris-perle": "Pearl Grey" } },
+        "noir": { "label": "Black", "shades": { "noir-profond": "Deep Black", "noir-mat": "Matte Black", "noir-bleute": "Blue-Black" } },
+        "vert": { "label": "Dark Green", "shades": { "bouteille": "Bottle Green", "sapin": "Pine Green", "olive": "Dark Olive Green" } },
+        "marron": { "label": "Brown", "shades": { "chocolat": "Chocolate", "cognac": "Cognac", "chataigne": "Chestnut" } },
+        "beige": { "label": "Beige", "shades": { "sable": "Sand", "taupe": "Taupe", "lin": "Linen" } }
+      },
+      "patterns": {
+        "checks": { "label": "Checks", "sub": "Glen plaid, Prince of Wales, Windowpane…", "detail": "Subtle or bold, checks give character without overdoing it." },
+        "stripes": { "label": "Stripes", "sub": "Chalk stripe, Pinstripe, Tennis stripe…", "detail": "Stripes elongate the silhouette. A classic of English and Italian tailoring." },
+        "exotic": { "label": "Exotic patterns", "sub": "Herringbone, Houndstooth, Birdseye, Madras…", "detail": "For connoisseurs who want to stand out with subtlety." }
+      },
+      "trouserCuts": {
+        "classic": { "label": "Classic", "sub": "Straight leg, clean drape.", "detail": "A timeless pair of trousers, neither too tight nor too loose. Goes with any jacket." },
+        "slim": { "label": "Slim", "sub": "Fitted along the whole leg.", "detail": "A modern, sleek silhouette, tapered towards the ankle. Ideal with a fitted jacket." },
+        "loose": { "label": "Loose", "sub": "Full leg, fluid drape.", "detail": "A relaxed, contemporary cut, more freedom of movement. Perfect with a relaxed jacket." }
+      },
+      "waistbands": {
+        "standard": { "label": "Standard", "sub": "Classic waistband, visible button.", "detail": "A simple, versatile setup, with belt loops, made for wearing a belt." },
+        "double": { "label": "Side adjusters", "sub": "Adjustable buckles on both sides.", "detail": "A military-inspired style: two adjustable buckles at the hips and a continuous front, no belt." }
+      },
+      "pleats": {
+        "none": { "label": "No pleats", "sub": "Flat front.", "detail": "The trousers fall straight against the leg. A clean, modern, versatile look." },
+        "single": { "label": "Single pleat", "sub": "One pleat per leg.", "detail": "A pleat that opens towards the side seam. More ease at the waist and comfort when sitting." },
+        "double": { "label": "Double pleat", "sub": "Two pleats per leg.", "detail": "Two pleats that open towards the side seam. Classic style, maximum fullness and comfort." }
+      },
+      "hems": {
+        "plain": { "label": "Plain hem", "sub": "Clean finish, no cuff.", "detail": "The fabric is folded inside the leg for a clean finish. The most classic, versatile finish." },
+        "turnup4": { "label": "4cm cuff", "sub": "4cm turn-up.", "detail": "A cuff that reveals more of the ankle, elongates the silhouette and adds weight for a better drape." }
+      },
+      "buttonMaterials": {
+        "marron": { "label": "Amber horn", "sub": "Natural amber horn.", "detail": "The great classic of made-to-measure: amber reflections and warm marbling, each button slightly unique." },
+        "brun-craquele": { "label": "Dark brown horn", "sub": "Matte crackled effect.", "detail": "A deep brown with a naturally crackled texture, for a finish that's both discreet and bold." },
+        "noir": { "label": "Black horn", "sub": "Deep matte finish.", "detail": "A matte, solid black, resolutely understated. Goes with any fabric colour." },
+        "marbre": { "label": "Marbled horn", "sub": "Black & grey marbled effect.", "detail": "Grey and white veins on a dark base, for a button with a more graphic character." },
+        "bleu": { "label": "Blue-tinted horn", "sub": "Deep blue tint.", "detail": "A horn tinted in an intense midnight blue, for a discreet, refined touch of colour." },
+        "ivoire": { "label": "Ivory horn", "sub": "Light, smoked edge.", "detail": "A bright, light tone with slightly smoked edges, ideal for light fabrics and summer outfits." }
+      },
+      "lapels": {
+        "notch": { "label": "Notch lapel", "sub": "Notch, the classic lapel.", "detail": "The most versatile shape, with a clean notch between the collar and lapel. Suits any occasion." },
+        "peak": { "label": "Peak lapel", "sub": "Peak, bold look.", "detail": "A lapel that points upward, more formal and bold. Traditionally paired with double-breasted jackets and formal wear." }
+      },
+      "lapelWidths": {
+        "8,5": { "label": "8.5 cm", "sub": "Slim and discreet: a low-profile lapel, very contemporary in its restraint, for a sleeker silhouette." },
+        "9,5": { "label": "9.5 cm", "sub": "Our recommendation: enough presence to give the jacket character, without ever tipping into excess." },
+        "11": { "label": "11 cm", "sub": "Wide and bold: the power-suit lapel, for a commanding look that immediately draws the eye." }
+      },
+      "trouserLinings": {
+        "full": { "label": "Full lining", "sub": "Leg fully lined.", "detail": "Maximum comfort and a perfect glide when putting them on. Ideal for winter and structured fabrics." },
+        "half": { "label": "Half lining", "sub": "Lined to the knee.", "detail": "A good compromise between comfort and breathability: limits friction without weighing the trousers down." },
+        "none": { "label": "Unlined", "sub": "Entirely unlined.", "detail": "Light and breathable, for summer fabrics like linen or lightweight cotton." }
+      },
+      "monogramPlacements": {
+        "inside": { "label": "Inside jacket", "sub": "Embroidered on the left side of the inner lining." },
+        "collar": { "label": "Under the collar", "sub": "Embroidered under the collar, discreet and refined." }
+      },
+      "monogramColors": {
+        "white": "White", "silver": "Silver", "grey": "Grey", "light-blue": "Sky Blue",
+        "navy": "Navy", "burgundy": "Burgundy", "gold": "Gold", "black": "Black"
+      },
+      "shirtFabrics": {
+        "blanc": { "label": "White", "sub": "The great classic, always right." },
+        "bleu-ciel": { "label": "Sky blue", "sub": "Fresh and versatile, the most worn after white." },
+        "bleu-fonce": { "label": "Dark blue", "sub": "Bolder, works as well alone as with a suit." },
+        "rose-pale": { "label": "Pale pink", "sub": "A discreet touch of colour, very popular in business settings." },
+        "raye-bleu": { "label": "Blue stripes", "sub": "Fine stripes on a light ground, an English classic." },
+        "raye-fine": { "label": "Tone-on-tone stripes", "sub": "A subtle texture, almost solid from a distance." }
+      },
+      "shirtFits": {
+        "classic": { "label": "Classic", "sub": "Straight cut, comfortable.", "detail": "A timeless cut with ease throughout the chest. The most versatile everyday choice." },
+        "slim": { "label": "Fitted", "sub": "Sleeker silhouette, modern.", "detail": "Closer to the body at the waist and arms, for a clean look — perfect worn under a jacket." },
+        "relaxed": { "label": "Relaxed", "sub": "Loose cut, fluid drape.", "detail": "More freedom of movement and a softer drape — at ease outside the office." }
+      },
+      "shirtCollars": {
+        "italien": { "label": "Italian collar", "sub": "Spread points, modern.", "detail": "An open, elegant collar, with or without a tie — the most versatile today." },
+        "boutonne": { "label": "Button-down collar", "sub": "Button-down, smart-casual.", "detail": "The collar points button onto the shirt — an American classic, perfect without a tie." },
+        "francais": { "label": "French collar", "sub": "Straight points, classic.", "detail": "The most formal collar, cut for a tie or bow tie." }
+      },
+      "shirtCuffs": {
+        "simple": { "label": "Button cuff", "sub": "One button, discreet.", "detail": "The everyday cuff, just as easy to wear with or without a jacket." },
+        "mousquetaire": { "label": "French cuff", "sub": "For cufflinks.", "detail": "Fastens with cufflinks — the most formal touch, for special occasions." }
+      },
+      "shirtMonogramPlacements": {
+        "cuff": { "label": "Cuff", "sub": "Embroidered on the cuff, discreet and classic." },
+        "tail": { "label": "Shirt tail", "sub": "Embroidered at the bottom, invisible once worn." }
+      }
+    },
+    "summaryRows": {
+      "occasion": "Occasion",
+      "piece": "Piece",
+      "colorMotif": "Colour / Pattern",
+      "colorCustom": "To be defined with Luc (bespoke)",
+      "fabric": "Fabric",
+      "cut": "Cut",
+      "collar": "Collar",
+      "cuff": "Cuff",
+      "monogram": "Monogram",
+      "monogramNo": "No",
+      "monogramThread": "thread",
+      "jacketStyle": "Jacket style",
+      "jacketCut": "Jacket cut",
+      "closure": "Closure",
+      "jacketButtons": "Jacket buttons",
+      "lining": "Lining",
+      "lapel": "Lapel",
+      "trouserCut": "Trouser cut",
+      "waistband": "Waistband",
+      "trouserButtons": "Trouser buttons",
+      "pleats": "Pleats",
+      "hem": "Hem",
+      "trouserLining": "Trouser lining",
+      "measurements": "Measurements",
+      "neckSize": "neck",
+      "sleeveLength": "sleeve",
+      "jacketSize": "jacket",
+      "waistSize": "waist",
+      "tapeMeasure": "Tape measure",
+      "tapeMeasureShip": "To be shipped",
+      "tapeMeasureReady": "Already equipped",
+      "amountFull": "Amount due",
+      "amountFullSuffix": "(paid in full)",
+      "price": "Price",
+      "deposit": "Deposit due",
+      "delay": "Lead time",
+      "delayValue": "2 – 3 weeks"
+    }
+  }
+}

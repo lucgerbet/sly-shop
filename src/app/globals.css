@@ -7,7 +7,10 @@
   --color-choco: #3a2a23;
   --color-cherry: #5a1f24;
   --color-border: #e5ddd5;
-  --color-muted: #8a7a6e;
+  /* Darkened from the original #8a7a6e — that tone read ~4.1:1 against
+     white, just under WCAG AA's 4.5:1 for normal text, and this color is
+     used for every product description in the configurator. */
+  --color-muted: #6b5b4e;
 }
 
 @theme inline {
@@ -21,8 +24,6 @@
   --font-brand: var(--font-cormorant);
   --font-sans: var(--font-dm);
 }
-
-html { scroll-behavior: smooth; }
 
 body {
   background: var(--color-white);
