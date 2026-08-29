@@ -50,7 +50,7 @@ export const CARDS: Record<string, Card> = {
     // what actually appears on screen. Also the WhatsApp number.
     phone: "+33640702528",
     phoneDisplay: "+33 6 40 70 25 28",
-    tagline: "Costumes et chemises sur mesure, à Paris.",
+    tagline: "Costumes et chemises sur mesure.",
     leadSource: "carte-luc",
   },
 };
