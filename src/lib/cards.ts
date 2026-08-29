@@ -46,10 +46,10 @@ export const CARDS: Record<string, Card> = {
     role: "Fondateur",
     company: "SLY Atelier",
     email: "contact@sly-atelier.com",
-    // TODO: no phone number exists anywhere in this repo — fill both fields
-    // in to make the phone line and the vCard TEL entry appear.
-    phone: "",
-    phoneDisplay: "",
+    // E.164 for the vCard TEL field and the tel: link; the display form is
+    // what actually appears on screen. Also the WhatsApp number.
+    phone: "+33640702528",
+    phoneDisplay: "+33 6 40 70 25 28",
     tagline: "Costumes et chemises sur mesure, à Paris.",
     leadSource: "carte-luc",
   },
