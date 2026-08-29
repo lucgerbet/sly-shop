@@ -43,3 +43,17 @@ export function getDisplayPriceCents(type: string, promoCode: string): number {
   const promo = resolvePromoCode(type, promoCode);
   return promo?.priceCents ?? PRICES[type]?.amountCents ?? 0;
 }
+
+// "The SLY Experience" gift packs (2026-08-30) — a separate structure from
+// PRICES on purpose: PRICES is keyed by configurator product `type`
+// (suit/blazer/trousers/shirt), each buildable through /customize. A pack is
+// never configured directly — it's bought as-is on /experience, then
+// redeemed later through the exact same suit configurator, with N shirts
+// noted as included but detailed live with Luc on the call rather than
+// pre-selected online (see /experience/carte/[code]). Mirrors sly-crm's
+// `products` table rows of the same key — keep both sides in sync.
+export const GIFT_PACKS: Record<string, { label: string; shirtsIncluded: number; amountCents: number }> = {
+  pack_suit_shirt: { label: "Costume + 1 chemise", shirtsIncluded: 1, amountCents: 72500 },
+  pack_suit_3shirts: { label: "Costume + 3 chemises", shirtsIncluded: 3, amountCents: 87500 },
+  pack_suit_5shirts: { label: "Costume + 5 chemises", shirtsIncluded: 5, amountCents: 99900 },
+};

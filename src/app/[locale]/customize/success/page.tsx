@@ -13,7 +13,12 @@ function SuccessContent() {
   const t = useTranslations("Success");
   const searchParams = useSearchParams();
   const sessionId = searchParams.get("session_id");
-  const [status, setStatus] = useState<"loading" | "booking" | "done" | "error">("loading");
+  // Set by StepPayment's gift-mode handlePay after a successful redemption
+  // (see sly-crm's POST /api/gift-cards/:code/redeem) — no Stripe session
+  // exists for a gift redemption, so orderId is the correlation key instead.
+  const isGift = searchParams.get("gift") === "1";
+  const giftOrderId = searchParams.get("orderId");
+  const [status, setStatus] = useState<"loading" | "booking" | "done" | "error">(isGift ? "booking" : "loading");
   const [amount, setAmount] = useState<number | null>(null);
   const [booked, setBooked] = useState(false);
   const fullName = (c: Config | null) => [c?.firstName, c?.lastName].filter(Boolean).join(" ");
@@ -27,6 +32,7 @@ function SuccessContent() {
   });
 
   useEffect(() => {
+    if (isGift) return; // already set to "booking" above — nothing to verify with Stripe
     if (!sessionId) return; // no session_id: render falls through to the error view below directly
 
     fetch(`/api/verify-session?session_id=${sessionId}`)
@@ -56,18 +62,32 @@ function SuccessContent() {
       // Always French — this is what the CRM/Luc sees, see frTranslator.ts.
       const rows: [string, string][] = config ? buildSummaryRows(config, frConfiguratorT) : [];
 
-      fetch("/api/submit-order", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          sessionId,
-          rows,
-          name: fullName(config) || "Client",
-          email: config?.email || "",
-          message: config?.message || "",
-        }),
-      }).finally(() => {
+      // /api/submit-order re-verifies payment against Stripe by sessionId —
+      // there is none for a gift redemption (the pack was paid for earlier,
+      // on /experience), so this internal "new order" ping is skipped here.
+      // sly-crm already sent its own equivalent notification the moment the
+      // gift code was redeemed (see internal_gift_redeemed_* in webhooks.js).
+      const submitOrderPromise = isGift
+        ? Promise.resolve()
+        : fetch("/api/submit-order", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              sessionId,
+              rows,
+              name: fullName(config) || "Client",
+              email: config?.email || "",
+              message: config?.message || "",
+            }),
+          });
+
+      submitOrderPromise.finally(() => {
+        // The saved-draft keys (see /customize/page.tsx's readDraft/clearDraft)
+        // — the order is placed and booked, there's nothing left to resume.
         localStorage.removeItem("sly_config");
+        localStorage.removeItem("sly_customize_step");
+        localStorage.removeItem("sly_customize_max_step");
+        localStorage.removeItem("sly_customize_saved_at");
         setStatus("done");
       });
 
@@ -75,12 +95,15 @@ function SuccessContent() {
       // above; the booking already succeeded on Calendly's side regardless.
       // The CRM resolves the real start/end time itself via the Calendly
       // API using calendlyEventUri (event_scheduled never carries a date/time).
-      if (sessionId) {
+      // Gift redemptions correlate by orderId instead of a Stripe session id
+      // (see sly-crm's POST /api/appointments/from-widget).
+      if (sessionId || giftOrderId) {
         fetch("/api/appointment-booked", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            stripeCheckoutSessionId: sessionId,
+            stripeCheckoutSessionId: sessionId || undefined,
+            orderId: isGift ? giftOrderId || undefined : undefined,
             calendlyEventUri,
           }),
         }).catch(() => {});
@@ -88,9 +111,9 @@ function SuccessContent() {
     }
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
-  }, [status, booked, amount, sessionId, config]);
+  }, [status, booked, amount, sessionId, config, isGift, giftOrderId]);
 
-  if (sessionId && status === "loading") {
+  if (!isGift && sessionId && status === "loading") {
     return (
       <div className="min-h-screen flex items-center justify-center px-6">
         <p className="text-sm text-muted font-light">{t("verifying")}</p>
@@ -98,7 +121,7 @@ function SuccessContent() {
     );
   }
 
-  if (!sessionId || status === "error") {
+  if (!isGift && (!sessionId || status === "error")) {
     return (
       <div className="min-h-screen flex items-center justify-center px-6">
         <div className="max-w-md text-center">
@@ -127,7 +150,7 @@ function SuccessContent() {
               <span className="text-white text-base">✓</span>
             </div>
             <h1 className="font-brand text-3xl text-ink mb-2">
-              {t("paidTitle", { amount: amount ? (amount / 100).toFixed(2) : "—" })}
+              {isGift ? "SLY Experience — déjà réglée" : t("paidTitle", { amount: amount ? (amount / 100).toFixed(2) : "—" })}
             </h1>
             <p className="text-sm text-muted font-light">{t("bookingSubtitle")}</p>
           </div>

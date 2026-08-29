@@ -11,12 +11,15 @@ const LOCALE_LABELS: Record<string, string> = {
   it: "IT",
 };
 
-// Legal pages (/cgv, /confidentialite, /mentions-legales) live outside the
-// [locale] segment entirely — always French, no translated equivalent to
-// switch to (see src/app/(legal)). next-intl's own routing helpers don't
-// know these routes, so switching from there would 404; the raw pathname
-// lets us detect that case and just not render a switcher.
-const LOCALE_AGNOSTIC_ROUTES = ["/cgv", "/confidentialite", "/mentions-legales"];
+// Legal pages (/cgv, /confidentialite, /mentions-legales) and the "SLY
+// Experience" gift pages (/experience/*) all live outside the [locale]
+// segment entirely — always French, no translated equivalent to switch to
+// (see src/app/(legal) and src/app/experience). next-intl's own routing
+// helpers don't know these routes, so switching from there would 404; the
+// raw pathname lets us detect that case and just not render a switcher.
+// Prefix match (not exact) since /experience has nested routes of its own
+// (/experience/carte/[code], /experience/success).
+const LOCALE_AGNOSTIC_PREFIXES = ["/cgv", "/confidentialite", "/mentions-legales", "/experience"];
 
 export default function LangSwitcher({ className = "" }: { className?: string }) {
   const locale = useLocale();
@@ -25,7 +28,7 @@ export default function LangSwitcher({ className = "" }: { className?: string })
   const router = useRouter();
   const t = useTranslations("LangSwitcher");
 
-  if (LOCALE_AGNOSTIC_ROUTES.includes(rawPathname)) {
+  if (LOCALE_AGNOSTIC_PREFIXES.some((p) => rawPathname === p || rawPathname.startsWith(`${p}/`))) {
     return null;
   }
 

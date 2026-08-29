@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+import OffersDropdown from "@/components/OffersDropdown";
 import {
   OCCASIONS, TYPES, TROUSER_CUTS, JACKET_CUT_TO_TROUSER_CUT, JACKET_STYLES, JACKET_CUTS,
   WAISTBANDS, WAIST_SIZES, PLEATS, HEMS, CLOSURES, LININGS,
@@ -18,14 +19,19 @@ import { buildSummaryRows } from "./summary";
 import { frConfiguratorT } from "./frTranslator";
 import { isStepValid } from "./validation";
 import { useLocalizedOptions, useLocalizedColorFamilies, useLocalizedMonogramColors } from "./useLocalizedOptions";
-import { PRICES, DEPOSIT_CENTS, DEPOSIT_REFUNDABLE_CENTS, getDisplayPriceCents, resolvePromoCode } from "@/lib/pricing";
+import { PRICES, DEPOSIT_CENTS, DEPOSIT_REFUNDABLE_CENTS, getDisplayPriceCents, resolvePromoCode, GIFT_PACKS } from "@/lib/pricing";
+
+// Set once a valid ?giftCode= is confirmed against the CRM — see the
+// giftCode effect in CustomizeInner. null means either no code in the URL,
+// or one that's still being validated / turned out invalid.
+type GiftState = { code: string; packKey: string; packLabel: string } | null;
 
 /* ─── Step bar ───────────────────────────────────────────────── */
 
 /* Sticky price bar — keeps the price visible during the whole configuration,
    removing pricing anxiety mid-tunnel. Hidden on payment/summary (they have
    their own breakdown). */
-function PriceBar({ config, currentKey }: { config: Config; currentKey: StepKey }) {
+function PriceBar({ config, currentKey, gift }: { config: Config; currentKey: StepKey; gift: GiftState }) {
   const t = useTranslations("Configurator.priceBar");
   const types = useLocalizedOptions("types", TYPES);
   const selectedType = types.find((ty) => ty.id === config.type);
@@ -33,6 +39,21 @@ function PriceBar({ config, currentKey }: { config: Config; currentKey: StepKey 
   const promo = resolvePromoCode(config.type, config.promoCode);
   const displayPrice = `${(getDisplayPriceCents(config.type, config.promoCode) / 100).toFixed(0)} €`;
   const isFullPayment = PRICES[config.type]?.paymentMode === "full";
+
+  if (gift) {
+    return (
+      <div className="fixed bottom-0 left-0 right-0 z-30 border-t border-border bg-white/95 backdrop-blur-sm">
+        <div className="mx-auto max-w-5xl px-6 md:px-10 py-3 flex items-center justify-between gap-4">
+          <div className="flex items-baseline gap-3 min-w-0">
+            <span className="text-xs uppercase tracking-[0.15em] text-muted truncate">{gift.packLabel}</span>
+            <span className="text-lg font-medium text-choco shrink-0">SLY Experience</span>
+          </div>
+          <span className="text-xs text-muted font-light shrink-0">Déjà réglé — <strong className="text-ink font-medium">rien à payer</strong></span>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="fixed bottom-0 left-0 right-0 z-30 border-t border-border bg-white/95 backdrop-blur-sm">
       <div className="mx-auto max-w-5xl px-6 md:px-10 py-3 flex items-center justify-between gap-4">
@@ -123,7 +144,7 @@ const STEP_KEY_TO_LABEL_KEY: Partial<Record<StepKey, string>> = {
   trouserCut: "coupe", waistband: "ceinture", trouserButtons: "boutons", pleats: "plis", hem: "ourlet",
 };
 
-function StepBar({ steps, current, onGoTo }: { steps: StepDef[]; current: number; onGoTo: (i: number) => void }) {
+function StepBar({ steps, current, maxStepReached, onGoTo }: { steps: StepDef[]; current: number; maxStepReached: number; onGoTo: (i: number) => void }) {
   const t = useTranslations("Configurator");
   const total = steps.length;
   const isSuitFlow = steps.some((s) => s.key === "jacket");
@@ -145,18 +166,25 @@ function StepBar({ steps, current, onGoTo }: { steps: StepDef[]; current: number
           const firstIdx = p.indices[0];
           const lastIdx = p.indices[p.indices.length - 1];
           const isDone = current > lastIdx;
-          const isActive = current >= firstIdx && current <= lastIdx;
+          // Free back-and-forth within anything already reached this
+          // session (or restored from a saved draft) — not gated on the
+          // phase being fully completed, just on having gotten there once.
+          // Jumping further ahead than that stays blocked: a phase never
+          // visited has unanswered required fields, and letting StepPayment
+          // or the recap render against those would be a real bug, not a
+          // convenience.
+          const reachable = firstIdx <= maxStepReached;
           return (
             <button
               key={p.id}
-              onClick={() => isDone && onGoTo(firstIdx)}
-              disabled={!isDone}
+              onClick={() => reachable && onGoTo(firstIdx)}
+              disabled={!reachable}
               title={t(`phases.${p.id}`)}
               className={`flex-1 h-1.5 rounded-full transition-colors ${
                 isDone
                   ? "bg-choco cursor-pointer hover:opacity-70"
-                  : isActive
-                  ? "bg-choco/40"
+                  : reachable
+                  ? "bg-choco/40 cursor-pointer hover:opacity-70"
                   : "bg-border cursor-not-allowed"
               }`}
             />
@@ -1069,7 +1097,7 @@ function StepTransition({ config }: { config: Config }) {
   );
 }
 
-function StepPayment({ config }: { config: Config }) {
+function StepPayment({ config, gift }: { config: Config; gift: GiftState }) {
   const t = useTranslations("Configurator.payment");
   const tConfigurator = useTranslations("Configurator");
   const types = useLocalizedOptions("types", TYPES);
@@ -1083,11 +1111,44 @@ function StepPayment({ config }: { config: Config }) {
   const refundableEuros = (DEPOSIT_REFUNDABLE_CENTS / 100).toFixed(0);
   const nonRefundableEuros = ((DEPOSIT_CENTS - DEPOSIT_REFUNDABLE_CENTS) / 100).toFixed(0);
   const pieceLabel = selectedType?.label ?? t("pieceFallback");
+  const shirtsIncluded = gift ? GIFT_PACKS[gift.packKey]?.shirtsIncluded ?? 0 : 0;
 
   function handlePay() {
     setLoading(true);
     setError(null);
     localStorage.setItem("sly_config", JSON.stringify(config));
+
+    // Gift redemption: nothing to charge, the pack was already paid for at
+    // purchase time on /experience. This single call both creates the paid
+    // order and marks the gift code used (see sly-crm's POST
+    // /api/gift-cards/:code/redeem) — no Stripe involved at all.
+    if (gift) {
+      const rows = buildSummaryRows(config, frConfiguratorT);
+      if (shirtsIncluded > 0) {
+        rows.push(["SLY Experience", `${shirtsIncluded} chemise${shirtsIncluded > 1 ? "s" : ""} incluse${shirtsIncluded > 1 ? "s" : ""} — tissu et coupe à définir avec Luc pendant le rendez-vous`]);
+      }
+      fetch("/api/redeem-gift-order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          giftCode: gift.code,
+          customer: { firstName: config.firstName, lastName: config.lastName, email: config.email },
+          config,
+          configSummary: rows,
+        }),
+      })
+        .then(async (r) => {
+          const data = await r.json();
+          if (!r.ok || !data.orderId) throw new Error("redeem_failed");
+          window.location.href = `/customize/success?gift=1&orderId=${encodeURIComponent(data.orderId)}`;
+        })
+        .catch(() => {
+          setError(t("errorMsg"));
+          setLoading(false);
+        });
+      return;
+    }
+
     fetch("/api/create-checkout-session", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -1109,6 +1170,48 @@ function StepPayment({ config }: { config: Config }) {
         setError(t("errorMsg"));
         setLoading(false);
       });
+  }
+
+  if (gift) {
+    return (
+      <div className="max-w-2xl">
+        <p className="text-[11px] uppercase tracking-[0.3em] text-cherry font-medium mb-4">SLY Experience</p>
+        <h2 className="font-brand text-3xl md:text-4xl text-ink mb-2">Déjà réglé — plus rien à payer</h2>
+        <p className="text-sm text-muted mb-8 font-light">
+          Votre <strong className="text-ink font-medium">{gift.packLabel}</strong> a été offert et payé intégralement.
+          Il ne vous reste qu&apos;à confirmer pour réserver votre rendez-vous vidéo avec Luc.
+        </p>
+
+        <div className="border border-border divide-y divide-border mb-8">
+          <div className="flex justify-between px-6 py-4 bg-offwhite">
+            <span className="text-sm text-ink font-medium">{pieceLabel} — {gift.packLabel}</span>
+            <span className="text-sm text-choco font-medium">Réglé</span>
+          </div>
+          {shirtsIncluded > 0 && (
+            <div className="flex justify-between px-6 py-4">
+              <span className="text-sm text-muted font-light">
+                + {shirtsIncluded} chemise{shirtsIncluded > 1 ? "s" : ""} incluse{shirtsIncluded > 1 ? "s" : ""}
+              </span>
+              <span className="text-sm text-muted font-light">à définir avec Luc</span>
+            </div>
+          )}
+        </div>
+
+        {error && (
+          <div className="mb-6 px-5 py-4 bg-red-50 border border-red-200 text-sm text-red-800 font-light leading-relaxed">
+            {error}
+          </div>
+        )}
+
+        <button
+          onClick={handlePay}
+          disabled={loading}
+          className="px-8 py-4 bg-choco text-white text-sm tracking-wide hover:bg-ink transition-colors disabled:opacity-50"
+        >
+          {loading ? t("redirecting") : "Confirmer et réserver mon rendez-vous →"}
+        </button>
+      </div>
+    );
   }
 
   return (
@@ -1188,6 +1291,55 @@ function StepPayment({ config }: { config: Config }) {
 
 /* ─── Main configurator ──────────────────────────────────────── */
 
+// A configuration in progress is saved continuously (see the persistence
+// effect below) under these keys, so quitting mid-flow — closing the tab,
+// navigating away, a phone dying — never loses it. Browser-local only: there
+// is no account system on this site, so "saved" means "saved on this
+// device, in this browser," not recoverable from a different one. sly_config
+// itself predates this feature (StepPayment already wrote it right before
+// the Stripe redirect, so the success page could rebuild the Calendly
+// prefill/email after returning from a full-page redirect) — reused rather
+// than duplicated, the other three keys are new.
+const DRAFT_STEP_KEY = "sly_customize_step";
+const DRAFT_MAX_STEP_KEY = "sly_customize_max_step";
+const DRAFT_SAVED_AT_KEY = "sly_customize_saved_at";
+const DRAFT_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
+
+type Draft = { config: Config; step: number; maxStepReached: number };
+
+function readDraft(): Draft | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const rawConfig = localStorage.getItem("sly_config");
+    const rawStep = localStorage.getItem(DRAFT_STEP_KEY);
+    const rawSavedAt = localStorage.getItem(DRAFT_SAVED_AT_KEY);
+    if (!rawConfig || !rawStep || !rawSavedAt) return null;
+
+    const savedAt = Number(rawSavedAt);
+    if (!Number.isFinite(savedAt) || Date.now() - savedAt > DRAFT_MAX_AGE_MS) return null;
+
+    const step = Number(rawStep);
+    // step 0 is just the very first question, answered or not — nothing
+    // meaningful to offer resuming yet.
+    if (!Number.isFinite(step) || step <= 0) return null;
+
+    const config = JSON.parse(rawConfig) as Config;
+    const rawMaxStep = localStorage.getItem(DRAFT_MAX_STEP_KEY);
+    const maxStepReached = Number.isFinite(Number(rawMaxStep)) ? Number(rawMaxStep) : step;
+    return { config, step, maxStepReached };
+  } catch {
+    return null;
+  }
+}
+
+function clearDraft() {
+  if (typeof window === "undefined") return;
+  localStorage.removeItem("sly_config");
+  localStorage.removeItem(DRAFT_STEP_KEY);
+  localStorage.removeItem(DRAFT_MAX_STEP_KEY);
+  localStorage.removeItem(DRAFT_SAVED_AT_KEY);
+}
+
 function CustomizeInner() {
   const t = useTranslations("Configurator");
   const tOccasion = useTranslations("Configurator.occasion");
@@ -1197,6 +1349,8 @@ function CustomizeInner() {
   const shirtFits = useLocalizedOptions("shirtFits", SHIRT_FITS);
   const shirtCollars = useLocalizedOptions("shirtCollars", SHIRT_COLLARS);
   const shirtCuffs = useLocalizedOptions("shirtCuffs", SHIRT_CUFFS);
+  const types = useLocalizedOptions("types", TYPES);
+  const tResume = useTranslations("Configurator.resume");
 
   // The homepage's piece cards link here as ?type=suit|blazer|trousers|shirt
   // — honor that instead of asking the client to repeat a choice they just made.
@@ -1206,10 +1360,65 @@ function CustomizeInner() {
     requestedType === "suit" || requestedType === "blazer" || requestedType === "trousers" || requestedType === "shirt"
       ? requestedType : "";
 
+  // "SLY Experience" gift redemption — /experience/carte/[code] links here as
+  // ?type=suit&giftCode=XXXX. Validated server-side (again, regardless of
+  // this check) at redemption time by StepPayment's handlePay, but checked
+  // here too so the whole flow can visibly say "already paid" rather than
+  // silently accepting a bad or expired code until the very last step.
+  const giftCode = searchParams.get("giftCode");
+  const [gift, setGift] = useState<GiftState>(null);
+  useEffect(() => {
+    if (!giftCode) return;
+    fetch(`/api/gift-cards/${encodeURIComponent(giftCode)}`)
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.valid) setGift({ code: giftCode, packKey: data.packKey, packLabel: data.packLabel });
+      })
+      .catch(() => {});
+  }, [giftCode]);
+
+  // A gift redemption always starts a fresh session — mixing it with a
+  // stale, unrelated draft (possibly from a totally different visit) would
+  // be confusing at best and wrong at worst, so the draft check is skipped
+  // entirely whenever ?giftCode= is present.
+  //
+  // Both start at a value that renders identically to "fresh" (the normal
+  // stepper) and only change inside an effect, never in a lazy useState
+  // initializer — readDraft() touches localStorage, which doesn't exist
+  // during server rendering. Computing it during the initial render would
+  // make the server's HTML (always "no draft") disagree with the client's
+  // first render (which — running in the browser — really can see one),
+  // which is exactly what a hydration mismatch is. Checking inside a
+  // useEffect instead means the check only ever runs client-side, after
+  // hydration has already reconciled against the server's "no draft" output.
+  const [draft, setDraft] = useState<Draft | null>(null);
+  const [resumeChoice, setResumeChoice] = useState<"checking" | "pending" | "resume" | "fresh">("checking");
+  useEffect(() => {
+    const found = giftCode ? null : readDraft();
+    if (found) {
+      setDraft(found);
+      setResumeChoice("pending");
+    } else {
+      setResumeChoice("fresh");
+    }
+    // Deliberately empty deps — this is a one-time check on mount, not
+    // something that should re-run if giftCode somehow changed later.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // Always starts on "occasion" — asked before anything else, even when the
   // piece is already known from the link the client clicked. The "which
   // piece?" question itself is skipped on the way past it (see goNext below).
   const [step, setStep] = useState(0);
+  // How far this session (or a resumed draft) has actually gotten — lets
+  // StepBar allow free back-and-forth navigation across anything already
+  // reached, without opening the door to jumping ahead into steps that were
+  // never answered (see StepBar's `reachable` check).
+  const [maxStepReached, setMaxStepReached] = useState(0);
+  useEffect(() => {
+    setMaxStepReached((m) => Math.max(m, step));
+  }, [step]);
+
   const [config, setConfig] = useState<Config>({
     occasion: "", type: initialType, jacketStyle: "", jacketCut: "", closure: "", lining: "",
     monogram: false, monogramPlacement: "", monogramInitials: "", monogramColor: "",
@@ -1223,6 +1432,34 @@ function CustomizeInner() {
     hasTapeMeasure: "", shippingAddress: "", shippingCity: "", shippingZip: "",
     firstName: "", lastName: "", email: "", message: "", referredBy: "", promoCode: "",
   });
+
+  function resumeDraft() {
+    if (draft) {
+      setConfig(draft.config);
+      setStep(draft.step);
+      setMaxStepReached(draft.maxStepReached);
+    }
+    setResumeChoice("resume");
+  }
+  function startFresh() {
+    clearDraft();
+    setResumeChoice("fresh");
+  }
+
+  // Saves continuously — every change to the config, not just at payment —
+  // so quitting mid-flow (closing the tab, navigating away) never loses
+  // progress. Gated on resumeChoice being resolved ("resume" or "fresh"):
+  // writing while still "checking" or "pending" would silently overwrite
+  // the very draft the prompt is about to offer, before the client has
+  // chosen either option.
+  useEffect(() => {
+    if (resumeChoice === "checking" || resumeChoice === "pending") return;
+    if (typeof window === "undefined") return;
+    localStorage.setItem("sly_config", JSON.stringify(config));
+    localStorage.setItem(DRAFT_STEP_KEY, String(step));
+    localStorage.setItem(DRAFT_MAX_STEP_KEY, String(maxStepReached));
+    localStorage.setItem(DRAFT_SAVED_AT_KEY, String(Date.now()));
+  }, [config, step, maxStepReached, resumeChoice]);
 
   const set = (k: keyof Config, v: string | boolean) => setConfig((c) => ({ ...c, [k]: v }));
 
@@ -1282,17 +1519,48 @@ function CustomizeInner() {
     setStep(next);
   }
 
+  if (resumeChoice === "pending" && draft) {
+    const draftTypeLabel = types.find((ty) => ty.id === draft.config.type)?.label ?? tResume("pieceFallback");
+    return (
+      <div className="min-h-screen flex items-center justify-center px-6">
+        <div className="max-w-md text-center">
+          <h1 className="font-brand text-3xl text-ink mb-4">{tResume("title")}</h1>
+          <p className="text-sm text-muted font-light leading-relaxed mb-8">
+            {tResume("body", { piece: draftTypeLabel })}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={resumeDraft}
+              className="px-8 py-4 bg-choco text-white text-sm tracking-wide hover:bg-ink transition-colors"
+            >
+              {tResume("resumeCta")}
+            </button>
+            <button
+              onClick={startFresh}
+              className="px-8 py-4 border border-border text-ink text-sm tracking-wide hover:border-ink transition-colors"
+            >
+              {tResume("freshCta")}
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen">
       <div className="border-b border-border bg-white sticky top-0 z-40">
         <div className="mx-auto max-w-6xl px-6 md:px-10 h-[70px] flex items-center justify-between">
           <Link href="/" className="font-brand text-xl tracking-[0.15em] uppercase text-ink">SLY Atelier</Link>
-          <Link href="/" className="text-xs text-muted hover:text-ink transition-colors">{tUi("quit")}</Link>
+          <div className="flex items-center gap-6">
+            <OffersDropdown align="right" />
+            <Link href="/" className="text-xs text-muted hover:text-ink transition-colors">{tUi("quit")}</Link>
+          </div>
         </div>
       </div>
 
       <div className="mx-auto max-w-5xl px-6 md:px-10 py-14 md:py-20 pb-28 md:pb-32">
-        <StepBar steps={steps} current={step} onGoTo={setStep} />
+        <StepBar steps={steps} current={step} maxStepReached={maxStepReached} onGoTo={setStep} />
 
         {currentKey === "occasion" && (
           <StepSimpleChoice title={tOccasion("title")} subtitle={tOccasion("subtitle")}
@@ -1338,7 +1606,7 @@ function CustomizeInner() {
         )}
         {currentKey === "sizing" && <StepSizing config={config} set={set} />}
         {currentKey === "recap" && <StepTransition config={config} />}
-        {currentKey === "payment" && <StepPayment config={config} />}
+        {currentKey === "payment" && <StepPayment config={config} gift={gift} />}
         {currentKey === "summary" && (
           <StepSummary
             config={config}
@@ -1364,7 +1632,7 @@ function CustomizeInner() {
         )}
       </div>
 
-      <PriceBar config={config} currentKey={currentKey} />
+      <PriceBar config={config} currentKey={currentKey} gift={gift} />
     </div>
   );
 }
