@@ -53,6 +53,22 @@ export const CARDS: Record<string, Card> = {
     tagline: "Costumes et chemises sur mesure.",
     leadSource: "carte-luc",
   },
+  luca: {
+    slug: "luca",
+    firstName: "Luca",
+    lastName: "Pereira",
+    role: "Co-fondateur",
+    company: "SLY Atelier",
+    // Adresse de l'atelier, faute d'adresse personnelle : mieux vaut une
+    // adresse qui existe qu'un luca@ inventé, imprimé sur des cartons.
+    email: "contact@sly-atelier.com",
+    phone: "+33782980887",
+    phoneDisplay: "+33 7 82 98 08 87",
+    tagline: "Costumes et chemises sur mesure.",
+    // Le préfixe "carte-" suffit au CRM pour l'étiqueter Card — voir
+    // sourceBadge() dans sly-crm/frontend/src/labels.js.
+    leadSource: "carte-luca",
+  },
 };
 
 export function getCard(slug: string): Card | undefined {
