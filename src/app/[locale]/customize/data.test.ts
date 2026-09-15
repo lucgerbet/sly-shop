@@ -16,7 +16,7 @@ describe("buildSteps", () => {
     expect(keys).not.toContain("waistband");
     expect(keys).not.toContain("pleats");
     expect(keys).toEqual([
-      "occasion", "type", "color", "contact", "jacket", "jacketCut", "closure", "jacketButtons", "lining", "lapel", "monogram",
+      "occasion", "type", "color", "jacket", "jacketCut", "closure", "jacketButtons", "jacketContact", "lining", "lapel", "jacketPocket", "monogram",
       "sizing", "recap", "summary", "payment",
     ]);
   });
@@ -28,7 +28,7 @@ describe("buildSteps", () => {
     expect(jacketEnd).toBeGreaterThan(-1);
     expect(trouserStart).toBe(jacketEnd + 1);
     expect(keys).toEqual([
-      "occasion", "type", "color", "contact", "jacket", "jacketCut", "closure", "jacketButtons", "lining", "lapel", "monogram",
+      "occasion", "type", "color", "jacket", "jacketCut", "closure", "jacketButtons", "jacketContact", "lining", "lapel", "jacketPocket", "monogram",
       "trouserCut", "waistband", "trouserButtons", "pleats", "hem",
       "sizing", "recap", "summary", "payment",
     ]);

@@ -213,7 +213,8 @@
       "pantalon": "Pantalon",
       "ceinture": "Ceinture",
       "plis": "Plis",
-      "ourlet": "Ourlet"
+      "ourlet": "Ourlet",
+      "poches": "Poches"
     },
     "occasion": {
       "title": "Pour quelle occasion ?",
@@ -837,6 +838,18 @@
           "label": "Bas de chemise",
           "sub": "Brodé en bas, invisible une fois portée."
         }
+      },
+      "jacketPockets": {
+        "flap": {
+          "label": "Poche à rabat",
+          "sub": "Le classique polyvalent.",
+          "detail": "Une poche plaquée avec un rabat qui la recouvre. Le choix le plus courant, adapté à toutes les occasions, du bureau au mariage."
+        },
+        "jetted": {
+          "label": "Poche cousue",
+          "sub": "Épurée, plus formelle.",
+          "detail": "Une simple fente cousue dans le tissu, sans rabat ni surpiqûre visible. Une finition plus habillée, traditionnellement réservée aux tenues de soirée."
+        }
       }
     },
     "summaryRows": {
@@ -876,7 +889,8 @@
       "price": "Prix",
       "deposit": "Acompte à régler",
       "delay": "Délai",
-      "delayValue": "2 – 3 semaines"
+      "delayValue": "2 – 3 semaines",
+      "jacketPocket": "Poches"
     },
     "resume": {
       "title": "Reprendre votre configuration ?",
@@ -884,6 +898,10 @@
       "resumeCta": "Reprendre",
       "freshCta": "Recommencer à zéro",
       "pieceFallback": "votre pièce"
+    },
+    "jacketPocket": {
+      "title": "Poches de la veste",
+      "subtitle": "Le style des poches change le rendu global de la veste."
     }
   }
 }

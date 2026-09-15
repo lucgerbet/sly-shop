@@ -213,7 +213,8 @@
       "pantalon": "Trousers",
       "ceinture": "Waistband",
       "plis": "Pleats",
-      "ourlet": "Hem"
+      "ourlet": "Hem",
+      "poches": "Pockets"
     },
     "occasion": {
       "title": "For which occasion?",
@@ -837,6 +838,18 @@
           "label": "Shirt tail",
           "sub": "Embroidered at the bottom, invisible once worn."
         }
+      },
+      "jacketPockets": {
+        "flap": {
+          "label": "Flap pocket",
+          "sub": "The versatile classic.",
+          "detail": "A patch pocket with a flap covering it. The most common choice, suited to any occasion from the office to a wedding."
+        },
+        "jetted": {
+          "label": "Jetted pocket",
+          "sub": "Clean-lined, more formal.",
+          "detail": "A simple welt sewn into the fabric, no flap or visible stitching. A dressier finish, traditionally reserved for eveningwear."
+        }
       }
     },
     "summaryRows": {
@@ -876,7 +889,8 @@
       "price": "Price",
       "deposit": "Deposit due",
       "delay": "Lead time",
-      "delayValue": "2 – 3 weeks"
+      "delayValue": "2 – 3 weeks",
+      "jacketPocket": "Pockets"
     },
     "resume": {
       "title": "Resume your configuration?",
@@ -884,6 +898,10 @@
       "resumeCta": "Resume",
       "freshCta": "Start over",
       "pieceFallback": "your piece"
+    },
+    "jacketPocket": {
+      "title": "Jacket pockets",
+      "subtitle": "The pocket style changes the overall look of the jacket."
     }
   }
 }

@@ -1,7 +1,7 @@
 import { PRICES, DEPOSIT_CENTS, getDisplayPriceCents, resolvePromoCode } from "@/lib/pricing";
 import {
   OCCASIONS, TYPES, JACKET_STYLES, JACKET_CUTS, CLOSURES, LININGS, COLOR_FAMILIES, PATTERNS,
-  TROUSER_CUTS, WAISTBANDS, PLEATS, HEMS, BUTTON_MATERIALS, LAPELS, TROUSER_LININGS,
+  TROUSER_CUTS, WAISTBANDS, PLEATS, HEMS, BUTTON_MATERIALS, LAPELS, TROUSER_LININGS, JACKET_POCKETS,
   MONOGRAM_PLACEMENTS, MONOGRAM_COLORS,
   SHIRT_FABRICS, SHIRT_FITS, SHIRT_COLLARS, SHIRT_CUFFS, SHIRT_MONOGRAM_PLACEMENTS,
   type Config,
@@ -56,6 +56,7 @@ export function buildSummaryRows(config: Config, t: Translator): [string, string
   const selectedJacketButtons = BUTTON_MATERIALS.find((b) => b.id === config.jacketButtons);
   const selectedTrouserButtons = BUTTON_MATERIALS.find((b) => b.id === config.trouserButtons);
   const selectedLapel = LAPELS.find((l) => l.id === config.lapel);
+  const selectedJacketPocket = JACKET_POCKETS.find((p) => p.id === config.jacketPocket);
   const selectedTrouserLining = TROUSER_LININGS.find((l) => l.id === config.trouserLining);
 
   const selectedMonogramPlacement = MONOGRAM_PLACEMENTS.find((p) => p.id === config.monogramPlacement);
@@ -97,6 +98,7 @@ export function buildSummaryRows(config: Config, t: Translator): [string, string
       [t("summaryRows.jacketButtons"), selectedJacketButtons ? opt("buttonMaterials", selectedJacketButtons.id, "label") : "—"],
       [t("summaryRows.lining"), selectedLining ? opt("linings", selectedLining.id, "label") : "—"],
       [t("summaryRows.lapel"), `${selectedLapel ? opt("lapels", selectedLapel.id, "label") : "—"} · ${config.lapelWidth ? `${config.lapelWidth} cm` : "—"}`],
+      [t("summaryRows.jacketPocket"), selectedJacketPocket ? opt("jacketPockets", selectedJacketPocket.id, "label") : "—"],
       [t("summaryRows.monogram"), config.monogram
         ? `${config.monogramInitials} · ${selectedMonogramPlacement ? opt("monogramPlacements", selectedMonogramPlacement.id, "label") : ""} · ${monogramThread} ${selectedMonogramColor ? t(`options.monogramColors.${selectedMonogramColor.id}`) : ""}`
         : monogramNo],

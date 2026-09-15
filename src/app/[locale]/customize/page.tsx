@@ -10,7 +10,7 @@ import {
   OCCASIONS, TYPES, TROUSER_CUTS, JACKET_CUT_TO_TROUSER_CUT, JACKET_STYLES, JACKET_CUTS,
   WAISTBANDS, WAIST_SIZES, PLEATS, HEMS, CLOSURES, LININGS,
   MONOGRAM_PLACEMENTS, MONOGRAM_COLORS, PATTERNS, BUTTON_MATERIALS,
-  LAPELS, LAPEL_WIDTHS, WAISTBAND_WIDTHS,
+  LAPELS, LAPEL_WIDTHS, WAISTBAND_WIDTHS, JACKET_POCKETS,
   SHIRT_FABRICS, SHIRT_FITS, SHIRT_COLLARS, SHIRT_CUFFS, SHIRT_MONOGRAM_PLACEMENTS,
   PHASES, buildSteps,
   type Config, type StepKey, type StepDef, type ProductType,
@@ -136,11 +136,11 @@ function StepSimpleChoice({
 // is the one exception (shows "Pantalon" instead of "Coupe"), detected below
 // by checking whether a "jacket" step is present in the same flow.
 const STEP_KEY_TO_LABEL_KEY: Partial<Record<StepKey, string>> = {
-  occasion: "occasion", type: "piece", shirtColor: "tissu", contact: "contact",
+  occasion: "occasion", type: "piece", shirtColor: "tissu", contact: "contact", jacketContact: "contact",
   shirtFit: "coupe", shirtCollar: "col", shirtCuff: "poignet", shirtMonogram: "monogramme",
   sizing: "mensurations", recap: "recap", summary: "coordonnees", payment: "paiement",
   color: "couleur", jacket: "veste", jacketCut: "coupe", closure: "fermeture",
-  jacketButtons: "boutons", lining: "doublure", lapel: "revers", monogram: "monogramme",
+  jacketButtons: "boutons", lining: "doublure", lapel: "revers", jacketPocket: "poches", monogram: "monogramme",
   trouserCut: "coupe", waistband: "ceinture", trouserButtons: "boutons", pleats: "plis", hem: "ourlet",
 };
 
@@ -1349,6 +1349,7 @@ function CustomizeInner() {
   const shirtFits = useLocalizedOptions("shirtFits", SHIRT_FITS);
   const shirtCollars = useLocalizedOptions("shirtCollars", SHIRT_COLLARS);
   const shirtCuffs = useLocalizedOptions("shirtCuffs", SHIRT_CUFFS);
+  const jacketPockets = useLocalizedOptions("jacketPockets", JACKET_POCKETS);
   const types = useLocalizedOptions("types", TYPES);
   const tResume = useTranslations("Configurator.resume");
 
@@ -1419,11 +1420,21 @@ function CustomizeInner() {
     setMaxStepReached((m) => Math.max(m, step));
   }, [step]);
 
+  // Every step swaps in entirely different content, often a different
+  // height — without this, moving from a tall step (lots of photo options)
+  // to a short one leaves the client scrolled halfway down a page that
+  // no longer has anything there, looking like the new step "didn't load".
+  // Not page-specific: it happens on any step-to-step jump, just more
+  // noticeable on some than others depending on how tall the two steps are.
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [step]);
+
   const [config, setConfig] = useState<Config>({
     occasion: "", type: initialType, jacketStyle: "", jacketCut: "", closure: "", lining: "",
     monogram: false, monogramPlacement: "", monogramInitials: "", monogramColor: "",
     colorType: "", colorFamily: "", color: "", pattern: "",
-    jacketButtons: "", lapel: "", lapelWidth: "",
+    jacketButtons: "", lapel: "", lapelWidth: "", jacketPocket: "",
     trouserCut: "", waistband: "", waistbandWidth: "", trouserButtons: "", pleats: "", hem: "",
     // No longer an explicit step — every trouser order always gets the full lining.
     trouserLining: "full",
@@ -1576,9 +1587,13 @@ function CustomizeInner() {
         )}
         {currentKey === "lining" && <StepLining config={config} set={set} />}
         {currentKey === "lapel" && <StepLapel config={config} set={set} />}
+        {currentKey === "jacketPocket" && (
+          <StepSimpleChoice title={t("jacketPocket.title")} subtitle={t("jacketPocket.subtitle")} cols={2}
+            options={jacketPockets} value={config.jacketPocket} onPick={(v) => set("jacketPocket", v)} />
+        )}
         {currentKey === "monogram" && <StepMonogram config={config} set={set} setConfig={setConfig} />}
         {currentKey === "color" && <StepColor config={config} setConfig={setConfig} />}
-        {currentKey === "contact" && <StepContact config={config} set={set} />}
+        {(currentKey === "contact" || currentKey === "jacketContact") && <StepContact config={config} set={set} />}
         {currentKey === "trouserCut" && <StepTrouserCut config={config} set={set} />}
         {currentKey === "waistband" && <StepWaistband config={config} set={set} />}
         {currentKey === "trouserButtons" && <StepTrouserButtons config={config} set={set} />}
@@ -1621,7 +1636,7 @@ function CustomizeInner() {
               className="text-sm text-muted hover:text-ink transition-colors disabled:opacity-30">{tUi("back")}</button>
             <button
               onClick={() => {
-                if (currentKey === "contact") captureLead();
+                if (currentKey === "contact" || currentKey === "jacketContact") captureLead();
                 goNext(step);
               }}
               disabled={!canNext}

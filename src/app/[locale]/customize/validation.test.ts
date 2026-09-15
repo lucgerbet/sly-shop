@@ -6,7 +6,7 @@ const emptyConfig: Config = {
   occasion: "", type: "", jacketStyle: "", jacketCut: "", closure: "", lining: "",
   monogram: false, monogramPlacement: "", monogramInitials: "", monogramColor: "",
   colorType: "", colorFamily: "", color: "", pattern: "",
-  jacketButtons: "", lapel: "", lapelWidth: "",
+  jacketButtons: "", lapel: "", lapelWidth: "", jacketPocket: "",
   trouserCut: "", waistband: "", waistbandWidth: "", trouserButtons: "", pleats: "", hem: "", trouserLining: "",
   shirtFabric: "", shirtFit: "", shirtCollar: "", shirtCuff: "",
   height: "", weight: "", jacketSize: "", waistSize: "", neckSize: "", sleeveLength: "",
@@ -99,6 +99,11 @@ describe("isStepValid — simple required-field steps", () => {
     expect(isStepValid("lapel", { ...emptyConfig, lapel: "notch", lapelWidth: "9,5" })).toBe(true);
   });
 
+  it("jacketPocket needs a style picked", () => {
+    expect(isStepValid("jacketPocket", emptyConfig)).toBe(false);
+    expect(isStepValid("jacketPocket", { ...emptyConfig, jacketPocket: "flap" })).toBe(true);
+  });
+
   it("recap/payment steps have nothing to fill in — always valid", () => {
     expect(isStepValid("recap", emptyConfig)).toBe(true);
     expect(isStepValid("payment", emptyConfig)).toBe(true);
@@ -112,6 +117,11 @@ describe("isStepValid — contact step", () => {
     expect(isStepValid("contact", { ...emptyConfig, firstName: "Jean", lastName: "Dupont" })).toBe(false);
     expect(isStepValid("contact", { ...emptyConfig, firstName: "Jean", lastName: "Dupont", email: "not-an-email" })).toBe(false);
     expect(isStepValid("contact", { ...emptyConfig, firstName: "Jean", lastName: "Dupont", email: "jean@example.com" })).toBe(true);
+  });
+
+  it("jacketContact is the same check — the suit/blazer flow's contact step, positioned later", () => {
+    expect(isStepValid("jacketContact", emptyConfig)).toBe(false);
+    expect(isStepValid("jacketContact", { ...emptyConfig, firstName: "Jean", lastName: "Dupont", email: "jean@example.com" })).toBe(true);
   });
 });
 

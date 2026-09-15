@@ -15,6 +15,7 @@ export function isStepValid(key: StepKey, config: Config): boolean {
     case "jacketButtons": return !!config.jacketButtons;
     case "lining": return !!config.lining;
     case "lapel": return !!config.lapel && !!config.lapelWidth;
+    case "jacketPocket": return !!config.jacketPocket;
     case "monogram": return !config.monogram || (!!config.monogramPlacement && !!config.monogramInitials && !!config.monogramColor);
     case "color": return config.colorType === "custom"
       ? true
@@ -22,7 +23,10 @@ export function isStepValid(key: StepKey, config: Config): boolean {
     // Moved here from "summary" (previously the last step before payment) —
     // capturing it this early is what makes an abandoned configuration
     // visible to Luc at all instead of vanishing without a trace.
-    case "contact": return !!config.firstName && !!config.lastName && EMAIL_RE.test(config.email);
+    // "jacketContact" is the same check under a different key — see its
+    // comment on StepKey in data.ts for why it isn't just "contact" again.
+    case "contact": case "jacketContact":
+      return !!config.firstName && !!config.lastName && EMAIL_RE.test(config.email);
     case "trouserCut": return !!config.trouserCut;
     case "waistband": return !!config.waistband && !!config.waistbandWidth;
     case "trouserButtons": return !!config.trouserButtons;

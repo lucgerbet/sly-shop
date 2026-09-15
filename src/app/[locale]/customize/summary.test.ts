@@ -14,7 +14,7 @@ const emptyConfig: Config = {
   occasion: "", type: "", jacketStyle: "", jacketCut: "", closure: "", lining: "",
   monogram: false, monogramPlacement: "", monogramInitials: "", monogramColor: "",
   colorType: "", colorFamily: "", color: "", pattern: "",
-  jacketButtons: "", lapel: "", lapelWidth: "",
+  jacketButtons: "", lapel: "", lapelWidth: "", jacketPocket: "",
   trouserCut: "", waistband: "", waistbandWidth: "", trouserButtons: "", pleats: "", hem: "", trouserLining: "",
   shirtFabric: "", shirtFit: "", shirtCollar: "", shirtCuff: "",
   height: "", weight: "", jacketSize: "", waistSize: "", neckSize: "", sleeveLength: "",

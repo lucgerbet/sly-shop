@@ -213,7 +213,8 @@
       "pantalon": "Pantalone",
       "ceinture": "Cintura",
       "plis": "Pinces",
-      "ourlet": "Orlo"
+      "ourlet": "Orlo",
+      "poches": "Tasche"
     },
     "occasion": {
       "title": "Per quale occasione?",
@@ -837,6 +838,18 @@
           "label": "Fondo camicia",
           "sub": "Ricamato in fondo, invisibile una volta indossata."
         }
+      },
+      "jacketPockets": {
+        "flap": {
+          "label": "Tasca con pattina",
+          "sub": "Il classico versatile.",
+          "detail": "Una tasca applicata con una pattina che la copre. La scelta più comune, adatta a ogni occasione, dall'ufficio al matrimonio."
+        },
+        "jetted": {
+          "label": "Tasca a filetto",
+          "sub": "Pulita, più formale.",
+          "detail": "Una semplice fessura cucita nel tessuto, senza pattina né cuciture visibili. Una finitura più elegante, tradizionalmente riservata all'abbigliamento da sera."
+        }
       }
     },
     "summaryRows": {
@@ -876,7 +889,8 @@
       "price": "Prezzo",
       "deposit": "Acconto da pagare",
       "delay": "Tempistiche",
-      "delayValue": "2 – 3 settimane"
+      "delayValue": "2 – 3 settimane",
+      "jacketPocket": "Tasche"
     },
     "resume": {
       "title": "Riprendere la tua configurazione?",
@@ -884,6 +898,10 @@
       "resumeCta": "Riprendi",
       "freshCta": "Ricomincia da zero",
       "pieceFallback": "il tuo capo"
+    },
+    "jacketPocket": {
+      "title": "Tasche della giacca",
+      "subtitle": "Lo stile delle tasche cambia l'aspetto generale della giacca."
     }
   }
 }

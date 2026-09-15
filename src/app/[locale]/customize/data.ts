@@ -6,11 +6,18 @@
 // Asked before anything else — purely informational for Luc (shown in the
 // order recap/email) rather than driving any downstream recommendation, so
 // it doesn't interact with the jacketCut→trouserCut logic further down.
+// `photo` is an editorial shot meant to help the client project themselves
+// into the occasion (a wedding, an office, a casual outing...) — distinct
+// from every other option photo in this file, which shows the actual
+// product detail being chosen (a lapel, a lining...). Paths point at files
+// that don't exist yet (public/photos/occasions/ is currently empty) — Luc
+// adds them himself; until then the card just renders without a photo,
+// same as StepSimpleChoice already does for any option with no `photo`.
 export const OCCASIONS = [
-  { id: "ceremony", label: "Cérémonie", sub: "Mariage, gala, grand événement.", detail: "Une allure formelle et intemporelle, pensée pour marquer les grandes occasions." },
-  { id: "business", label: "Business", sub: "Bureau, rendez-vous professionnels.", detail: "Un costume qui inspire confiance et sérieux au quotidien professionnel." },
-  { id: "casual", label: "Casual", sub: "Sorties, tenue décontractée chic.", detail: "Une coupe plus libre, pour un usage moins formel sans perdre en élégance." },
-  { id: "daily", label: "Quotidien", sub: "Porté très régulièrement.", detail: "Une pièce polyvalente et confortable, taillée pour durer, au fil des jours." },
+  { id: "ceremony", label: "Cérémonie", sub: "Mariage, gala, grand événement.", detail: "Une allure formelle et intemporelle, pensée pour marquer les grandes occasions.", photo: "/photos/occasions/ceremony.jpg" },
+  { id: "business", label: "Business", sub: "Bureau, rendez-vous professionnels.", detail: "Un costume qui inspire confiance et sérieux au quotidien professionnel.", photo: "/photos/occasions/business.jpg" },
+  { id: "casual", label: "Casual", sub: "Sorties, tenue décontractée chic.", detail: "Une coupe plus libre, pour un usage moins formel sans perdre en élégance.", photo: "/photos/occasions/casual.jpg" },
+  { id: "daily", label: "Quotidien", sub: "Porté très régulièrement.", detail: "Une pièce polyvalente et confortable, taillée pour durer, au fil des jours.", photo: "/photos/occasions/daily.jpg" },
 ];
 
 export const TYPES = [
@@ -170,6 +177,23 @@ export const LININGS = [
     sub: "Entièrement non doublée.",
     detail: "Ultra-légère et respirante. Look décontracté et artisanal. Recommandée pour les tissus d'été comme le lin ou le coton.",
     photo: "/photos/linings/none.jpg",
+  },
+];
+
+export const JACKET_POCKETS = [
+  {
+    id: "flap",
+    label: "Poche à rabat",
+    sub: "Le classique polyvalent.",
+    detail: "Une poche plaquée avec un rabat qui la recouvre. Le choix le plus courant, adapté à toutes les occasions, du bureau au mariage.",
+    photo: "/photos/pockets/flap.jpg",
+  },
+  {
+    id: "jetted",
+    label: "Poche cousue",
+    sub: "Épurée, plus formelle.",
+    detail: "Une simple fente cousue dans le tissu, sans rabat ni surpiqûre visible. Une finition plus habillée, traditionnellement réservée aux tenues de soirée.",
+    photo: "/photos/pockets/jetted.jpg",
   },
 ];
 
@@ -356,6 +380,7 @@ export type Config = {
   jacketButtons: string;
   lapel: string;
   lapelWidth: string;
+  jacketPocket: string;
   trouserCut: string;
   waistband: string;
   waistbandWidth: string;
@@ -388,9 +413,16 @@ export type Config = {
 // Each step is identified by a stable `key`. The list of steps is built
 // dynamically from the selected product type, so conditional steps (e.g. the
 // trouser cut, only for a full suit) slot in cleanly without index juggling.
+// "jacketContact" is a deliberate duplicate of "contact", not a reuse — it's
+// the exact same StepContact component and the exact same validation, but
+// under its own key. A single StepKey can only belong to one PHASES group
+// (see the comment on PHASES below), and "contact" needs to sit in the
+// "piece" phase for the shirt/trousers flows but in the middle of "veste"
+// for the suit/blazer flow — the same lesson already applied to
+// shirtColor/shirtMonogram instead of reusing color/monogram.
 export type StepKey =
-  | "occasion" | "type" | "jacket" | "jacketCut" | "closure" | "jacketButtons" | "lining" | "lapel" | "monogram"
-  | "color" | "contact" | "trouserCut" | "waistband" | "trouserButtons" | "pleats" | "hem"
+  | "occasion" | "type" | "jacket" | "jacketCut" | "closure" | "jacketButtons" | "lining" | "lapel" | "jacketPocket" | "monogram"
+  | "color" | "contact" | "jacketContact" | "trouserCut" | "waistband" | "trouserButtons" | "pleats" | "hem"
   | "shirtColor" | "shirtFit" | "shirtCollar" | "shirtCuff" | "shirtMonogram"
   | "sizing" | "recap" | "payment" | "summary";
 
@@ -407,7 +439,7 @@ export type StepDef = { key: StepKey };
 // or trousers-only paths) is simply skipped by StepBar.
 export const PHASES: { id: string; keys: StepKey[] }[] = [
   { id: "piece", keys: ["occasion", "type", "color", "shirtColor", "contact"] },
-  { id: "veste", keys: ["jacket", "jacketCut", "closure", "jacketButtons", "lining", "lapel", "monogram"] },
+  { id: "veste", keys: ["jacket", "jacketCut", "closure", "jacketButtons", "jacketContact", "lining", "lapel", "jacketPocket", "monogram"] },
   { id: "pantalon", keys: ["trouserCut", "waistband", "trouserButtons", "pleats", "hem"] },
   { id: "chemise", keys: ["shirtFit", "shirtCollar", "shirtCuff", "shirtMonogram"] },
   { id: "mesures", keys: ["sizing"] },
@@ -429,10 +461,14 @@ export function buildSteps(type: string): StepDef[] {
       { key: "sizing" }, { key: "recap" }, { key: "summary" }, { key: "payment" },
     ];
   }
+  // Email capture sits right before "lining" here (not right after "color"
+  // like the other flows) — Luc's call: by the time someone has picked a
+  // jacket style, cut, closure and buttons, they're invested enough that
+  // asking for contact details doesn't feel like a toll booth at the door.
   const steps: StepDef[] = [
-    { key: "occasion" }, { key: "type" }, { key: "color" }, { key: "contact" },
+    { key: "occasion" }, { key: "type" }, { key: "color" },
     { key: "jacket" }, { key: "jacketCut" }, { key: "closure" }, { key: "jacketButtons" },
-    { key: "lining" }, { key: "lapel" }, { key: "monogram" },
+    { key: "jacketContact" }, { key: "lining" }, { key: "lapel" }, { key: "jacketPocket" }, { key: "monogram" },
   ];
   // A full two-piece suit also configures its trousers.
   if (type === "suit") {
