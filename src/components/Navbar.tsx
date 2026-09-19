@@ -20,7 +20,10 @@ export default function Navbar() {
     { label: tCategories("trousers.label"), href: "/customize?type=trousers" },
     { label: tCategories("shirt.label"), href: "/customize?type=shirt" },
   ];
-  const giftOffer = { label: "The SLY Experience", href: "/experience" };
+  const otherOffers = [
+    { label: "Bespoke — Reproduire une pièce", href: "/bespoke" },
+    { label: "The SLY Experience", href: "/experience" },
+  ];
 
   const links = [
     { label: t("howItWorks"), href: "/#process" },
@@ -104,13 +107,16 @@ export default function Navbar() {
                   {p.label}
                 </Link>
               ))}
-              <NextLink
-                href={giftOffer.href}
-                onClick={() => setOpen(false)}
-                className="text-sm tracking-wide text-choco"
-              >
-                {giftOffer.label}
-              </NextLink>
+              {otherOffers.map((o) => (
+                <NextLink
+                  key={o.href}
+                  href={o.href}
+                  onClick={() => setOpen(false)}
+                  className="text-sm tracking-wide text-choco"
+                >
+                  {o.label}
+                </NextLink>
+              ))}
             </div>
           </div>
 

@@ -4,16 +4,17 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import NextLink from "next/link";
 
-// Everything sold, in one dropdown: the four configurator pieces plus the
-// gift offer. Shared between Navbar (marketing pages) and the configurator's
-// own minimal header — kept as one component so the two never drift apart,
-// and so it stays reachable even mid-configuration, not just from the
-// homepage. The pieces stay inside [locale] (locale-aware Link, reusing
-// Categories' own labels so this list can never say something different
-// than the homepage cards do); "The SLY Experience" lives outside [locale]
-// entirely (French-only, see src/app/experience) so it needs plain
-// next/link — the locale-prefixing Link would send an /en or /it visitor to
-// a route that 404s.
+// Everything sold, in one dropdown: the four configurator pieces plus every
+// other-flow offer (gift card, bespoke reproduction...). Shared between
+// Navbar (marketing pages) and the configurator's own minimal header — kept
+// as one component so the two never drift apart, and so it stays reachable
+// even mid-configuration, not just from the homepage. The pieces stay
+// inside [locale] (locale-aware Link, reusing Categories' own labels so
+// this list can never say something different than the homepage cards do);
+// the other-flow offers live outside [locale] entirely (French-only, see
+// src/app/experience and src/app/bespoke) so they need plain next/link —
+// the locale-prefixing Link would send an /en or /it visitor to a route
+// that 404s.
 export default function OffersDropdown({ className = "", align = "left" }: { className?: string; align?: "left" | "right" }) {
   const t = useTranslations("Nav");
   const tCategories = useTranslations("Categories");
@@ -26,7 +27,10 @@ export default function OffersDropdown({ className = "", align = "left" }: { cla
     { label: tCategories("trousers.label"), sub: tCategories("trousers.sub"), href: "/customize?type=trousers" },
     { label: tCategories("shirt.label"), sub: tCategories("shirt.sub"), href: "/customize?type=shirt" },
   ];
-  const giftOffer = { label: "The SLY Experience", sub: "Carte cadeau", href: "/experience" };
+  const otherOffers = [
+    { label: "Bespoke — Reproduire une pièce", sub: "Sur photo, même prix", href: "/bespoke" },
+    { label: "The SLY Experience", sub: "Carte cadeau", href: "/experience" },
+  ];
 
   useEffect(() => {
     if (!open) return;
@@ -62,14 +66,17 @@ export default function OffersDropdown({ className = "", align = "left" }: { cla
               <span className="block text-xs text-muted font-light mt-0.5">{p.sub}</span>
             </Link>
           ))}
-          <NextLink
-            href={giftOffer.href}
-            onClick={() => setOpen(false)}
-            className="block px-5 py-3.5 hover:bg-offwhite transition-colors"
-          >
-            <span className="block text-sm text-choco font-medium">{giftOffer.label}</span>
-            <span className="block text-xs text-muted font-light mt-0.5">{giftOffer.sub}</span>
-          </NextLink>
+          {otherOffers.map((o, i) => (
+            <NextLink
+              key={o.href}
+              href={o.href}
+              onClick={() => setOpen(false)}
+              className={`block px-5 py-3.5 hover:bg-offwhite transition-colors ${i < otherOffers.length - 1 ? "border-b border-border" : ""}`}
+            >
+              <span className="block text-sm text-choco font-medium">{o.label}</span>
+              <span className="block text-xs text-muted font-light mt-0.5">{o.sub}</span>
+            </NextLink>
+          ))}
         </div>
       )}
     </div>
