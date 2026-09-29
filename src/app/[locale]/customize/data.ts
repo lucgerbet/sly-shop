@@ -337,20 +337,20 @@ export const SHIRT_FABRICS = [
 ];
 
 export const SHIRT_FITS = [
-  { id: "classic", label: "Classique", sub: "Coupe droite, confortable.", detail: "Une coupe intemporelle avec de l'aisance sur tout le buste. Le choix le plus polyvalent au quotidien." },
-  { id: "slim", label: "Ajustée", sub: "Silhouette resserrée, moderne.", detail: "Plus près du corps à la taille et aux bras, pour une allure nette — parfaite portée sous une veste." },
-  { id: "relaxed", label: "Décontractée", sub: "Coupe ample, tombé fluide.", detail: "Plus de liberté de mouvement et un tombé plus souple — à l'aise en dehors du bureau." },
+  { id: "classic", label: "Classique", sub: "Coupe droite, confortable.", detail: "Une coupe intemporelle avec de l'aisance sur tout le buste. Le choix le plus polyvalent au quotidien.", photo: "/photos/shirt-fits/classic.jpg" },
+  { id: "slim", label: "Ajustée", sub: "Silhouette resserrée, moderne.", detail: "Plus près du corps à la taille et aux bras, pour une allure nette — parfaite portée sous une veste.", photo: "/photos/shirt-fits/slim.jpg" },
+  { id: "relaxed", label: "Décontractée", sub: "Coupe ample, tombé fluide.", detail: "Plus de liberté de mouvement et un tombé plus souple — à l'aise en dehors du bureau.", photo: "/photos/shirt-fits/relaxed.jpg" },
 ];
 
 export const SHIRT_COLLARS = [
-  { id: "italien", label: "Col italien", sub: "Pointes écartées, moderne.", detail: "Un col ouvert et élégant, avec ou sans cravate — le plus polyvalent aujourd'hui." },
-  { id: "boutonne", label: "Col boutonné", sub: "Button-down, décontracté-chic.", detail: "Les pointes du col se boutonnent sur la chemise — un classique américain, parfait sans cravate." },
-  { id: "francais", label: "Col français", sub: "Pointes droites, classique.", detail: "Le col le plus formel, taillé pour la cravate ou le nœud papillon." },
+  { id: "italien", label: "Col italien", sub: "Pointes écartées, moderne.", detail: "Un col ouvert et élégant, avec ou sans cravate — le plus polyvalent aujourd'hui.", photo: "/photos/shirt-collars/italien.jpg" },
+  { id: "boutonne", label: "Col boutonné", sub: "Button-down, décontracté-chic.", detail: "Les pointes du col se boutonnent sur la chemise — un classique américain, parfait sans cravate.", photo: "/photos/shirt-collars/boutonne.jpg" },
+  { id: "francais", label: "Col français", sub: "Pointes droites, classique.", detail: "Le col le plus formel, taillé pour la cravate ou le nœud papillon.", photo: "/photos/shirt-collars/francais.jpg" },
 ];
 
 export const SHIRT_CUFFS = [
-  { id: "simple", label: "Poignet simple", sub: "Un bouton, discret.", detail: "Le poignet du quotidien, aussi facile à porter avec ou sans veste." },
-  { id: "mousquetaire", label: "Poignet mousquetaire", sub: "Pour boutons de manchette.", detail: "Se ferme avec des boutons de manchette — la touche la plus formelle, pour les grandes occasions." },
+  { id: "simple", label: "Poignet simple", sub: "Un bouton, discret.", detail: "Le poignet du quotidien, aussi facile à porter avec ou sans veste.", photo: "/photos/shirt-cuffs/simple.jpg" },
+  { id: "mousquetaire", label: "Poignet mousquetaire", sub: "Pour boutons de manchette.", detail: "Se ferme avec des boutons de manchette — la touche la plus formelle, pour les grandes occasions.", photo: "/photos/shirt-cuffs/mousquetaire.jpg" },
 ];
 
 export const SHIRT_MONOGRAM_PLACEMENTS = [
