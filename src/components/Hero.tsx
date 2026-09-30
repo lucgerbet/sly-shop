@@ -12,7 +12,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative flex flex-col md:flex-row md:min-h-screen bg-offwhite overflow-hidden">
+    <section id="mens-universe" className="relative flex flex-col md:flex-row md:min-h-screen bg-offwhite overflow-hidden scroll-mt-[70px]">
 
       {/* Left — text */}
       <div className="relative z-10 order-2 md:order-1 flex flex-col justify-center md:justify-center w-full md:w-1/2 px-6 md:px-14 lg:px-20 pb-8 md:pb-0 pt-8 md:pt-0">

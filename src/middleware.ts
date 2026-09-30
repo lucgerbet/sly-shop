@@ -12,9 +12,11 @@ export const config = {
   // French-only digital business cards (src/app/carte — handed over in
   // person, noindex, and living outside [locale] like the pages above), the
   // French-only bespoke reproduction flow (src/app/bespoke — same reasoning,
-  // men-only for v1), and any request for a file with an extension (images,
-  // sitemap.xml, robots.txt, favicon, etc.).
+  // men-only for v1), the French-only "women's universe" teaser
+  // (src/app/femme — no catalogue/prices exist for women yet), and any
+  // request for a file with an extension (images, sitemap.xml, robots.txt,
+  // favicon, etc.).
   matcher: [
-    "/((?!api|_next|_vercel|cgv|confidentialite|mentions-legales|experience|carte|bespoke|.*\\..*).*)",
+    "/((?!api|_next|_vercel|cgv|confidentialite|mentions-legales|experience|carte|bespoke|femme|.*\\..*).*)",
   ],
 };

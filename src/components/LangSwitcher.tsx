@@ -21,7 +21,7 @@ const LOCALE_LABELS: Record<string, string> = {
 // lets us detect that case and just not render a switcher. Prefix match
 // (not exact) since several of these have nested routes of their own
 // (/experience/carte/[code], /experience/success, /bespoke/success).
-const LOCALE_AGNOSTIC_PREFIXES = ["/cgv", "/confidentialite", "/mentions-legales", "/experience", "/carte", "/bespoke"];
+const LOCALE_AGNOSTIC_PREFIXES = ["/cgv", "/confidentialite", "/mentions-legales", "/experience", "/carte", "/bespoke", "/femme"];
 
 export default function LangSwitcher({ className = "" }: { className?: string }) {
   const locale = useLocale();

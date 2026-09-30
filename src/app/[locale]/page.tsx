@@ -1,5 +1,6 @@
 import { setRequestLocale } from "next-intl/server";
 import Navbar from "@/components/Navbar";
+import GenderGate from "@/components/GenderGate";
 import Hero from "@/components/Hero";
 import Categories from "@/components/Categories";
 import Process from "@/components/Process";
@@ -20,6 +21,7 @@ export default async function Home({
     <>
       <Navbar />
       <main>
+        <GenderGate />
         <Hero />
         <Categories />
         <Process />

@@ -903,5 +903,15 @@
       "title": "Tasche della giacca",
       "subtitle": "Lo stile delle tasche cambia l'aspetto generale della giacca."
     }
+  },
+  "GenderGate": {
+    "eyebrow": "SLY Atelier",
+    "mensLabel": "Uomo",
+    "mensSub": "Abito, giacca, pantaloni, camicia — su misura.",
+    "mensCta": "Scopri",
+    "mensImageAlt": "Abito su misura SLY Atelier",
+    "womensLabel": "Donna",
+    "womensSub": "Il su misura donna arriva presto.",
+    "womensCta": "Scopri di più"
   }
 }

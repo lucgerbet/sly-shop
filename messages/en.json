@@ -903,5 +903,15 @@
       "title": "Jacket pockets",
       "subtitle": "The pocket style changes the overall look of the jacket."
     }
+  },
+  "GenderGate": {
+    "eyebrow": "SLY Atelier",
+    "mensLabel": "Men",
+    "mensSub": "Suit, blazer, trousers, shirt — made to measure.",
+    "mensCta": "Discover",
+    "mensImageAlt": "SLY Atelier made-to-measure suit",
+    "womensLabel": "Women",
+    "womensSub": "Made-to-measure for women is coming soon.",
+    "womensCta": "Learn more"
   }
 }

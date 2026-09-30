@@ -903,5 +903,15 @@
       "title": "Poches de la veste",
       "subtitle": "Le style des poches change le rendu global de la veste."
     }
+  },
+  "GenderGate": {
+    "eyebrow": "SLY Atelier",
+    "mensLabel": "Homme",
+    "mensSub": "Costume, veste, pantalon, chemise — sur mesure.",
+    "mensCta": "Découvrir",
+    "mensImageAlt": "Costume sur mesure SLY Atelier",
+    "womensLabel": "Femme",
+    "womensSub": "Le sur-mesure féminin arrive bientôt.",
+    "womensCta": "En savoir plus"
   }
 }

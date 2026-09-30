@@ -60,7 +60,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${cormorant.variable} ${dmSans.variable}`}>
+    <html lang={locale} className={`${cormorant.variable} ${dmSans.variable} scroll-smooth`}>
       <body className="bg-white text-ink antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Analytics />
